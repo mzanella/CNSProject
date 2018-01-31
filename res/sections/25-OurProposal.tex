@@ -5,26 +5,35 @@ To bind physical people to wallet addresses we exploit the fact that
 people frequently advertise their own public keys to receive founds
 through  donations.
 
-We build our data set by searching onto Twitter and in developers 
-repositories.
+We build our data set by searching onto Twitter and on developers'
+repositories (e.g. github).
 
 
 % TWITTER
-On the former platform there are several people that ask for donation 
+On the former platform there are several people that ask for donations 
 for disparate purposes and sometimes the owners of some twitter accounts
-decide to donate some altcoins to gain popularity (e.g., with hashtag
-\texttt{\#BTCGiveAway}). They advertise 
+decide to donate some altcoins to gain followers and popularity (e.g., with hashtag \texttt{\#BTCGiveAway}). They advertise 
 their intent with a tweet, in which they ask the readers to follow
-them and reply with their own altcoin address. After some time the
-owner draw from the reply one account and perform the donation.
+them and reply with their own altcoin wallet. After some time the
+owner draw from the replies one of the authors and performs the donation.
 
 % REPOSITORIES
 On the latter source free-time developers that distribute their
 own software with free licenses may ask the users to donate some
 altcoins to guarantee the further development of their tool. 
 
-    
-\end{enumerate*}
-%~ We observed that a particular florid place to search for wallet addresses
-%~ are online accessible programs repositories. Indeed developers ask 
+Both these resources provide well-documented search APIs~\cite{}~\cite{}.
+
+\subsection{Methodology}
+\label{sec:methodology}
+We define a set of altcoins that we would like to de-anonymize. For each of them we define the symbol, the name and a regular expression
+that matches the wallet addresses for a particular coin.
+
+Based on this information we build queries as explained in section~\ref{sec:queries}.
+
+\subsection{Queries} 
+\label{sec:queries}
+
+To maximize the number of results
+
 
