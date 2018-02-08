@@ -1,2 +1,53 @@
 \section{Introduction}
-Insert introduction
+
+\subsection{Blockchain and Bitcoin}
+Blockchain was introduced in 2008, by Satoshi Nakamoto, an anonymous programmer
+(currently, it is probably a group of people) that designed with the aim to
+create a virtual and decentralized currency, Bitcoin~\cite{satoshi}. Since
+then, this technology has been developed and studied in different fields than
+the financial one. Bitcoin and Blockchain rely on the digital signatures in
+order to prevent the repudiation of a transaction, without a third party check.
+To achive this, it was designed a peer-to-peer payment system, in which each
+peer maintain a copy of the complete transaction history. Every transaction is
+hashed, validated and stored in blocks connected in a list. These are created
+by \textit{miners}, the members of the network, with a process called
+\textit{mining}. The Blockchain history is agreed upon using a proof-of-work
+system~\cite{pricing}~\cite{hashcash}, so each new block generated is rewarded.
+Blockchain, as we said before, was designed in order to deal with
+in particular Bitcoin and this systems becomes so popular because the it allows
+to prevent double spending problem using transparent transactions, and it
+preserve user personal privacy, giving them some sort of pseudo-anonymity.
+In this system every user owns at least one wallet, that is associate with an
+address. Addresses are 26-35 alphanumeric characters long and are indispensable
+in order to be able to exchange Bitcoins. In fact to give Bitcoin to another
+person you have to know her wallet address, that works as user account. It is
+also possible to send money to non-existant addresses: when someone will create
+a new wallet with that address it could redeem them. Each user could generate
+more wallets and they does not require any kind of authentication. Often it is
+raccomended to generate a new address to each transaction, in order to better
+preserve the anonimyty\cite{satoshi}. In order to use a certain address the
+owner of the wallet must know the private key associate with it, in fact if it
+will be lost there is no possibility to recover it. 
+
+
+\subsection{Altcoins}
+After the success of Bitcoin other digital currencies take place. All this
+cryptocurrencies that are different from Bitcoin are colled \textit{altcoins}
+(Alternative Coins)~\cite{bitcoinbeyond}.
+
+
+\subsection{Pseudo-anonymity in Bitcoin system}
+We can define a subject as anonymous if subject is not identifiable within a
+set of subjects, denoted as the anonymity set~\cite{terminology}. Bitcoin system
+does not provide it because I) The real-name authentication mechanism
+helps Bitcoin service providers to find the addresses that ever deposited and
+withdrew; II) a Bitcoin wallet advertised on Internet can be related to its
+owner; III) the chain of transactions is transparent; IV) exchanging inputs
+from an address to another one could expose the sender; V) the change address
+of transactions could be classified by attackers to the sender~\cite{deanon}.
+
+ In the Bitcoin network,
+Bitcoin addresses act as user accounts. Generally speaking, the aim of anonymization is to prevent
+attackers from discovering the relationship between Bitcoin addresses and real or virtual user identity
+information through the Bitcoin network and the blockchain used to record transactions. Conversely,
+deanonymization is the uncovering of the relationship between the Bitcoin address and the user.
