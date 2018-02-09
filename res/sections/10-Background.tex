@@ -1,3 +1,65 @@
 \section{Background}
-Insert background information: it should be information about blockchain/bitcoin
-and the pseudo anonymous
+\subsection{Blockchain and Bitcoin}
+Bitcoin was the first criptocurrency developed in order to use Blockchain
+technology. Bitcoin and Blockchain rely on the digital signatures
+to prevent the repudiation of a transaction, without a third party check.
+To achive this, it was designed a peer-to-peer payment system, in which each
+peer maintain a copy of the complete transaction history. Every transaction is
+hashed, validated and stored in blocks connected in a list. These are created
+by \textit{miners}, the members of the network, with a process called
+\textit{mining}. The Blockchain history is agreed upon using a proof-of-work
+system~\cite{pricing}~\cite{hashcash}, so each new block generated is rewarded.
+Blockchain, as we said before, was designed in order to deal with
+in particular Bitcoin and this systems becomes so popular because the it allows
+to prevent double spending problem using transparent transactions, and it
+preserve user personal privacy, giving them some sort of pseudo-anonymity.
+In this system every user owns at least one wallet, that is associate with an
+address. Addresses are 26-35 alphanumeric characters long and are indispensable
+in order to be able to exchange Bitcoins. In fact to give Bitcoin to another
+person you have to know her wallet address, that works as user account. It is
+also possible to send money to non-existant addresses: when someone will create
+a new wallet with that address it could redeem them. Each user could generate
+more wallets and they does not require any kind of authentication. Often it is
+raccomended to generate a new address to each transaction, in order to better
+preserve the anonymity\cite{satoshi}. In order to use a certain address the
+owner of the wallet must know the private key associate with it, in fact if it
+will be lost there is no possibility to recover it. 
+
+
+\subsection{Altcoins}
+After the success of Bitcoin other digital currencies take place. All this
+cryptocurrencies that are different from Bitcoin are colled \textit{altcoins}
+(Alternative Coins)~\cite{bitcoinbeyond}. One of the most famous is 
+\textbf{Ethereum}. A characteristics of this cryptocurrency is that in ... a
+fork happened and we have two different version of this coins: \textbf{Ethereum
+Classic} and \textbf{Ethereum}. Lots of aspects are similar to Bitcoin: even
+this altcoin is based on blockchain, transactions are public, users are
+pseudo-anonymous. In Ethereum wallets are associated with 40 alphanumeric
+characters addresses that could has as prefix \texttt{0x}. Three other altcoins
+that has public transactions (and that we deal with in this work) are 
+\textbf{Bitcoin Cash}, \textbf{Litecoin} and \textbf{Dogecoin}. The first one
+is a hard fork of Bitcoin performed in 2017. Addresses format are the same of
+the original coin. The second one, instead, is a criptocurrency born in 2011
+with the aim to improve Bitcoin and thought to be ``lighter'' to create blocks.
+Litecoin wallets starts with \texttt{L} or \texttt{M} followed by an
+alphanumeric string whose length is between 24 and 36 characters. The latter
+is an altcoin born as a joke in 2013 but that rapidly increased its value,
+exeeding 1 billion dollars in January 2018. Dogecoin addresses starts with
+\texttt{D} followed by 33 alphanumeric characters. A slightly different altcoin
+is \textbf{Monero}: this currency was created with the aim of privacy, so the
+transaction chain is not public. Monero wallets are a 90 alphanumeric addresses
+that starts with \texttt{4}.
+
+
+\subsection{Pseudo-anonymity in Bitcoin system}
+We can define a subject as anonymous if subject is not identifiable within a
+set of subjects, denoted as the anonymity set~\cite{terminology}. Bitcoin system
+does not provide it because I) The real-name authentication mechanism
+helps Bitcoin service providers to find the addresses that ever deposited and
+withdrew; II) a Bitcoin wallet advertised on Internet can be related to its
+owner; III) the chain of transactions is transparent; IV) exchanging inputs
+from an address to another one could expose the sender; V) the change address
+of transactions could be classified by attackers to the sender~\cite{deanon}.
+So in that context we can speak about pseudo-anonymity: until a user does not
+associate personal information with a certain wallet, she could be considered
+anonymous.
