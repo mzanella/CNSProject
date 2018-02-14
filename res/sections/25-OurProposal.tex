@@ -1,26 +1,38 @@
 \section{Nduja}
 %~ Here we could explain our idea. We could compare it with previous works.
 %~ Add evaluation if we implement something
-To bind physical people to wallet addresses we exploit the fact that
+
+\subsection{Data retrieving}
+Data that we used to implement our idea is publicly available on the Web. In
+fact to bind physical people to wallet addresses we exploit the fact that
 people frequently advertise their own public keys to receive founds
-through  donations.
+through donations.
 
-We build our data set by searching onto Twitter and on developers'
-repositories (e.g. github).
+We build our data set by searching onto social networks and on developers'
+repositories (e.g. github) and then expanding it with different techniques
+explained in other studies~\cite{fistful}. Following our idea, after discoving
+a wallet we could certainly associate it with an account that could have some
+other public information. Because a person could have more that a single wallet
+we search for all transaction in which the wallet is involved and we suppose
+that all the addresses input of a certain transaction are under control of the
+same person.
 
+\subsubsection*{Twitter}
+We have chosen this social network because most \textit{tweets} of the users are
+public and because there are several people that ask for donations 
+for disparate purposes or the owners of some accounts decide to donate some
+Bitcoins or altcoins to gain followers and popularity (e.g., using hashtag
+\texttt{\#BTCGiveAway}). They advertise their intent with a tweet, in which
+they ask the readers to follow them and reply with their own altcoin wallet.
+After some time the owner draw from the replies one of the authors and performs
+the donation.
 
-% TWITTER
-On the former platform there are several people that ask for donations 
-for disparate purposes and sometimes the owners of some twitter accounts
-decide to donate some altcoins to gain followers and popularity (e.g., with hashtag \texttt{\#BTCGiveAway}). They advertise 
-their intent with a tweet, in which they ask the readers to follow
-them and reply with their own altcoin wallet. After some time the
-owner draw from the replies one of the authors and performs the donation.
-
-% REPOSITORIES
-On the latter source free-time developers that distribute their
-own software with free licenses may ask the users to donate some
-altcoins to guarantee the further development of their tool. 
+\subsubsection*{Repositories}
+Free-time developers that distribute their own software with free licenses may
+ask the users to contribute to their project with some Bitcoins or altcoins to
+guarantee the further development of their tools. The choice of targeting our
+research even on developers is because they are more likely to follow new
+technologies and proposal such as new criptocurrencies.
 
 Both these resources provide well-documented search APIs~\cite{}~\cite{}.
 
