@@ -25,27 +25,52 @@ Bitcoins or altcoins to gain followers and popularity (e.g., using hashtag
 \texttt{\#BTCGiveAway}). They advertise their intent with a tweet, in which
 they ask the readers to follow them and reply with their own altcoin wallet.
 After some time the owner draw from the replies one of the authors and performs
-the donation.
+the donation. This could be done using Twitter API
+\footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}
 
 \subsubsection*{Repositories}
 Free-time developers that distribute their own software with free licenses may
 ask the users to contribute to their project with some Bitcoins or altcoins to
 guarantee the further development of their tools. The choice of targeting our
 research even on developers is because they are more likely to follow new
-technologies and proposal such as new cryptocurrencies.
+technologies and proposal such as new cryptocurrencies. This has been
+implemented using two different APIs: Github Search API
+\footnote{\url{https://developer.github.com/v3/search/}} and Searchcode API
+\footnote{\url{https://searchcode.com/api/}}
 
-Both these resources provide well-documented search APIs~\cite{}~\cite{}.
+\subsection{Cryptocurrencies we looked for}
+\label{subsec:currencies}
+The cryptocurrencies on which we focused our search are: Bitcoin, Ethereum,
+Litecoin, Dogecoin and Monero. This search could be easily expanded on every
+other altcoins knowing the pattern of the wallets' addresses. We focused our
+efforts on these because we have decide to choose three of the most famous
+cryptocurrencies (Bitcoin, Ethereum and Litecoin), Dogecoin because even if
+it was born as a joke, it reached a really high value. Finally, we even
+search for Monero addresses because it is a currency that does not allow to
+access to transaction chain, so we could only check how many users we could
+discover that advertise their Monero addresses, estimating the rate of use of
+it and this could give us how much information is lost trying to de-anonymize
+currencies with private transactions.
 
 \subsection{Methodology}
 \label{sec:methodology}
-We define a set of altcoins that we would like to de-anonymize. For each of them we define the symbol, the name and a regular expression
-that matches the wallet addresses for a particular coin.
+After we have decided the set of cryptocurrencies that we would like to
+de-anonymize, listed in section~\ref{subsec:currencies}, we have defined for
+each of them the symbol (3 or 4 characters that identify a particular
+currency), the name and a regular expression that matches the addresses of a
+certain coin.
 
-Based on this information we build queries as explained in section~\ref{sec:queries}.
+Based on this information we build queries as explained in
+section~\ref{sec:queries}.
 
 \subsection{Queries} 
 \label{sec:queries}
-
-To maximize the number of results
+In order to maximize the number of possible results in repositories we have
+searched for files that contained words such as \textbf{donation} or
+\textbf{contribution} and a set of characters that match regular expression
+that we defined for different address formats. Instead, in order to query
+Twitter we looked for the same things such as in repositories but also for
+\textit{hashtags} such as \textbf{\#GiveAway} or for correlated hashtags
+specific for a certain cryptocurrency (e.g. \#BTCGiveAway)
 
 
