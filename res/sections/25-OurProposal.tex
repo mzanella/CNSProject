@@ -1,4 +1,4 @@
-\section{Nduja}
+\section{Our proposal}
 %~ Here we could explain our idea. We could compare it with previous works.
 %~ Add evaluation if we implement something
 
@@ -12,15 +12,15 @@ We build our data set by searching onto social networks and on developers'
 repositories (e.g. github) and then expanding it with different techniques
 explained in other studies~\cite{fistful}. Following our idea, after discovering
 a wallet we could certainly associate it with an account that could have some
-other public information. Because a person could have more that a single wallet
-we search for all transaction in which the wallet is involved and we suppose
-that all the addresses input of a certain transaction are under control of the
-same person.
+other public information. Because a person could have more than a single wallet
+we search for all transactions in which the wallet is involved and we suppose
+that all the addresses input of a certain transaction are under the control of
+the same person \cite{satoshi} \cite{deanon} \cite{fistful}.
 
 \subsubsection*{Twitter}
 We have chosen this social network because most \textit{tweets} of the users are
-public and because there are several people that ask for donations 
-for disparate purposes or the owners of some accounts decide to donate some
+public. There are several people that ask for donations for the most disparate
+purposes and, furthermore the owners of some accounts decide to donate some
 Bitcoins or altcoins to gain followers and popularity (e.g., using hashtag
 \texttt{\#BTCGiveAway}). They advertise their intent with a tweet, in which
 they ask the readers to follow them and reply with their own altcoin wallet.
@@ -62,15 +62,3 @@ certain coin.
 
 Based on this information we build queries as explained in
 section~\ref{sec:queries}.
-
-\subsection{Queries} 
-\label{sec:queries}
-In order to maximize the number of possible results in repositories we have
-searched for files that contained words such as \textbf{donation} or
-\textbf{contribution} and a set of characters that match regular expression
-that we defined for different address formats. Instead, in order to query
-Twitter we looked for the same things such as in repositories but also for
-\textit{hashtags} such as \textbf{\#GiveAway} or for correlated hashtags
-specific for a certain cryptocurrency (e.g. \#BTCGiveAway)
-
-
