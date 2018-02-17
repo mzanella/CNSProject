@@ -54,12 +54,16 @@ that starts with \texttt{4}.
 \subsection{Pseudo-anonymity in Bitcoin system}
 We can define a subject as anonymous if subject is not identifiable within a
 set of subjects, denoted as the anonymity set~\cite{terminology}. Bitcoin system
-does not provide it because I) The real-name authentication mechanism
-helps Bitcoin service providers to find the addresses that ever deposited and
-withdrew; II) a Bitcoin wallet advertised on Internet can be related to its
-owner; III) the chain of transactions is transparent; IV) exchanging inputs
-from an address to another one could expose the sender; V) the change address
-of transactions could be classified by attackers to the sender~\cite{deanon}.
+does not provide it because~\cite{deanon}
+\begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
+\item The real-name authentication mechanism helps Bitcoin service providers to
+find the addresses that ever deposited and withdrew
+\item a Bitcoin wallet advertised on Internet can be related to its owner
+\item the chain of transactions is transparent
+\item exchanging inputs from an address to another one could expose the sender
+\item the change address of transactions could be classified by attackers to
+the sender.
+\end{enumerate*}
 So in that context we can speak about pseudo-anonymity: until a user does not
 associate personal information with a certain wallet, she could be considered
 anonymous.
