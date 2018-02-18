@@ -10,16 +10,16 @@ is composed by four main modules, represented in Figure\ref{fig:architecture}:
 \begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
 \item \walletcollector{} is a set of classes whose aim is to retrieve
 addresses of different cryptocurrencies. It provides a different class for each
-different sources that we used, following the same interface
+different source that we used, following the same interface
 \item \userinforetriever{} is a set of classes that, based on which
 site a wallet is discovered, retrieve some information (e.g. name, email,
 personal website) related to the owner of that wallet
-\item \addresschecker{} is a module that have to check if a sequence of
-characters recognized as an address is a real and used addresses. For certain
+\item \addresschecker{} is a module that checks if a sequence of
+characters recognized as an address is a real and used address. For certain
 altcoins it is not possible to perform this validation action accurately, e.g.
 Monero has private transactions, so it is not possible to find out that
 information
-\item \graph{} is the module that create graph with which is possible to
+\item \graph{} is the module that creates graph with which is possible to
 correlate addresses and plot graphs.
 \end{enumerate*}
 
@@ -50,8 +50,8 @@ bypass this limitation it could be possible to retrieve even more information.
 
 \subsection{Database}
 All data we have retrieved is stored into a
-SQLite\footnote{\url{https://www.sqlite.org/}} database. Addresses are save with
-the indication that if they are wallets retrieved from the websites we search,
+SQLite\footnote{\url{https://www.sqlite.org/}} database. 
+Addresses are saved with the indication that if they are wallets retrieved from the websites we search,
 if they are inferred or they are ``tagged'' addresses. These are wallets that
 are known a priori: that means that are used by famous services, such as mixing
 services or betting games as
@@ -61,15 +61,15 @@ not want that the number of addresses explode, the latter is that these
 addresses are ``public'' yet, so they are useless for the aim of our study.
 
 \subsection{Algorithm}
-The algorithm that \texttt{Nduja} follows could be explaine with a sequence of
+The algorithm that \texttt{Nduja} follows could be explained with a sequence of
 steps:
 \subsubsection*{Data retrieving} First all the possible wallets are collected
-and inserted into the database. So the reaserch on Twitter and Github and using
+and inserted into the database. So the research on Twitter and Github and using
 Searchcode is performed. The addresses are stored connected to the account that
 advertised them.
-\subsubsection*{Account data retrieving} After all passible data related to
+\subsubsection*{Account data retrieving} After all possible data related to
 accounts inserted into the database is collected: this is done using related API
 (e.g. Twitter API, Github Search API, Bitbucket API, ...) but also searching for
 emails and websites in the same file of the addresses.
 \subsubsection*{Clustering addresses} The last step is to group wallet that
-could be associate with the same person. TODO: Explain better
+could be associate with the same person. \todo{Explain better}
