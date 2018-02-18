@@ -23,9 +23,9 @@ information
 correlate addresses and plot graphs.
 \end{enumerate*}
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
-\includegraphics[scale=0.2]{db}
+\includegraphics[scale=0.22]{db}
 \caption{Nduja high level architecture}
 \label{fig:architecture}
 \end{figure}
@@ -80,11 +80,30 @@ wallets that could be associated with the same person. In order to do so we take
 Chain.so API\footnote{\url{https://chain.so/api}} and
 Etherscan API\footnote{\url{https://etherscan.io/apis}}. These APIs allow
 developers to query Bitcoin, Ethereum, Litecoin and Dogecoin blockchains without
-having a local copy of the blockchain, that can counts hundreds of gigabytes~\cite{}\todo{Add citation for this assertion}. 
+having a local copy of the blockchain, that can counts hundreds of
+gigabytes~\cite{}\todo{Add citation for this assertion}.
 We used them to find out all the transactions regarding a single wallet
-in our database. After that we looked for transactions with multiple input that
+in our database. 
+
+After that we looked for transactions with multiple inputs that
 involve wallets that we connected to a certain person in order to create a
-``cluster'' of wallet of the same user. TODO Explain better
+``cluster'' of wallet of the same user. 
+
+Indeed as already stated by Satoshi Nakamoto~\cite{}:
+\begin{quotation}
+	As an additional firewall, a new key pair should be used for each
+	transaction to keep them from being linked to a common owner.
+	Some linking is still unavoidable with multi-input transactions, which
+	necessarily reveal that their inputs were owned by the same owner. 
+	The risk is that if the owner of a key is revealed, linking could reveal
+	other transactions that belonged to
+	the same owner.
+\end{quotation}
+
+
+
+
+TODO Explain better
 
 
 
