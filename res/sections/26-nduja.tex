@@ -45,8 +45,12 @@ hashtags correlated to specific cryptocurrency (e.g. \#BTCGiveAway). This has
 been done using Twitter API
 \footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}.
 Twitter API has a strong limitation: we are only able to retrieve tweets that
-are published at most a week before the search. If there was a possibility to
-bypass this limitation it could be possible to retrieve even more information.
+are published at most a week before the search. This limitation is imposed
+because we have not paid for a premium account=. In fact our research must be
+thought as a proof of concept. Even if you would use a free account you can
+collect incremental data doing the query weekly: the information before the
+first search is lost without a premium account, but, following this idea you
+are able to collect all the future addresses.
 
 \subsection{Database}
 All data we have retrieved is stored into a
@@ -61,15 +65,35 @@ not want that the number of addresses explode, the latter is that these
 addresses are ``public'' yet, so they are useless for the aim of our study.
 
 \subsection{Algorithm}
-The algorithm that \texttt{Nduja} follows could be explaine with a sequence of
-steps:
+\texttt{Nduja} algorithm follows a sequence of 3 steps:
 \subsubsection*{Data retrieving} First all the possible wallets are collected
-and inserted into the database. So the reaserch on Twitter and Github and using
-Searchcode is performed. The addresses are stored connected to the account that
-advertised them.
-\subsubsection*{Account data retrieving} After all passible data related to
-accounts inserted into the database is collected: this is done using related API
-(e.g. Twitter API, Github Search API, Bitbucket API, ...) but also searching for
-emails and websites in the same file of the addresses.
+and inserted into the database. in order to perform this the reaserch on
+Twitter and Github and using Searchcode API is performed. Addresses discovered
+are stored in relation to the account that advertised them.
+\subsubsection*{Account data retrieving} The second steps involves the
+retrieving of all passible data related to accounts inserted into the database
+in step 1: this is done using related API (e.g. Twitter API, Github Search API,
+Bitbucket API, ...) but also searching for emails and websites in the same file
+of the addresses.
 \subsubsection*{Clustering addresses} The last step is to group wallet that
-could be associate with the same person. TODO: Explain better
+could be associate with the same person. In order to do so we take advantege of
+Blockchain.info API\footnote{\url{https://blockchain.info/api}},
+Chain.so API\footnote{\url{https://chain.so/api}} and
+Etherscan API\footnote{\url{https://etherscan.io/apis}}.These APIs allow
+developer to query Bitcoin, Ethereum, Litecoin and Dogecoin blockchains and we
+used them in order to find out all the transactions reguarding a single wallet
+in our database. After that we looked for transactions with multiple input that
+involve wallets that we connected to a certain person in order to create a
+``cluster'' of wallet of the same user. TODO Explain better
+
+
+
+
+
+
+
+
+
+
+
+
