@@ -2,6 +2,35 @@
 As the popularity of Bitcoins and altcoins growth, the number of work on
 de-anoymize their transactions increases. There are mainly 2 kind of approaches.
 
-The fist one exploit the structure of peers and connection on which the blockchain relies to attack anonymity of transactions. In~\cite{anonBitcoin} the authors propose a system in which they bind IP addresses to transaction to define the ownership of transactions. Another valuable study is~\cite{deanonP2P}. In the latter authors propose an attack to Bitcoin infrastructure that they claim to work even in challenging senarios (e.g. bypassing firewalls and NATs) with a few number of computers.
+The fist method exploit the structure of peers and connection on which the
+blockchain relies to attack anonymity of transactions. In~\cite{anonBitcoin}
+the authors propose a system in which they bind IP addresses to transaction to
+define the ownership of transactions. Another valuable study
+is~\cite{deanonP2P}. In the latter authors propose an attack to Bitcoin
+infrastructure that they claim to work even in challenging senarios (e.g.
+bypassing firewalls and NATs) with a few number of computers. We do not follow
+this idea because we do not want to bind IP addresses to transaction, but
+physical person to transaction. Another problem is that this kind of approach is
+computationally heavy, has no requirements on the computational power.
 
-An orthogonal, as the one we followed, is to search for public information on the Web in order to find out wallets that are advertised by the owner and then infer other related wallets. This approach is used in~\cite{fistful} 
+An orthogonal, as the one we followed, is to search for public information on
+the Web in order to find out wallets that are advertised by the owner and then
+infer other related wallets. This approach is used in~\cite{anonAnalysis}: the
+authors retrieved public available addresses from Bitcoin dedicated forums in
+order to discover related wallets. This approach is explained with a graph view
+of the transaction occured in the blockchain: addresses are vertex and
+transactions instead are edges. In this graph, called \textit{user graph}
+addresses inputs of the same transaction are clustered in a single node because
+owned by the same person. This privacy problem was for the first time issued by
+Satoshi Nakamoto and comes out because people do not generate new wallets for
+each transaction as suggested~\cite{satoshi}. Another work based on that idea
+is~\cite{fistful}. This work are pretty old and they focus only on Bitcoins and
+in retrieving addresses from Bitcoin forums. Another possible issue is the
+multi-signature native support of Bitcoins. This requires that a transaction is
+signed with more than a sigle public key~\cite{multisignature}: in this
+scenario all this addresses will be grouped in the same cluster. A more fine
+grained study of this cluster could find out the differences, but most of
+multisignature application involve closely related
+people~\cite{multisignaturebitcoinwiki}.
+
+Other related studies work on transaction profiling. In~\cite{fullDiscl} are proposed some profiling of transaction model in the Bitcoin environment. The simplest example is the following: if we have 2 addresses and the first one sends periodically the same amount of Bitcoins in US Dollars, then problably the person who ones the second wallet work for the first one.
