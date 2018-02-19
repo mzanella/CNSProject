@@ -23,21 +23,25 @@ explained with a graph view of the transaction occurred in the blockchain:
 addresses are the vertexes and transactions instead are the edges. In this
 graph, called \textit{user graph} addresses inputs of the same transaction are
 clustered in a single node because owned by the same person. This privacy
-problem was for the first time issued by Satoshi Nouakchott and comes out
+problem was for the first time issued by Satoshi Nakamoto and comes out
 because people do not generate new wallets for each transaction as he
 suggested~\cite{satoshi}. Another work based on that idea is~\cite{fistful}.
-These works are pretty old and they focus only on Bitcoins and in retrieving
-addresses from Bitcoin forums. A possible issue is the multi-signature native
-support of Bitcoins. This requires that a transaction, to be valid, is signed
-with more than a single public key~\cite{multisignature}: in this scenario all
-this addresses will be grouped in the same cluster. A more fine grained study
-of this cluster will probably find out the differences, if integrated with
-different techniques. We must consider that multi-signature usually application
-involve closely related people~\cite{multisignaturebitcoinwiki}, so for certain
-application can be usefull to group this people together.
+These works are pretty old (they are done 2011) and they focus only on Bitcoins
+and in retrieving addresses from Bitcoin forums. A possible issue is the
+multi-signature native support of Bitcoins. This requires that a transaction,
+to be valid, is signed with more than a single public
+key~\cite{multisignature}: in this scenario all this addresses will be grouped
+in the same cluster. A more fine grained study of this cluster will probably
+find out the differences, if integrated with different techniques. We must
+consider that multi-signature usually application involve closely related
+people~\cite{multisignaturebitcoinwiki}, so for certain application can be
+usefull to group this people together.
 
 Other related studies work on transaction profiling. In~\cite{fullDiscl} is
 proposed a profiling transaction model in the Bitcoin environment. The
 simplest example is the following: if we have 2 addresses and the first one
 sends periodically the same amount of Bitcoins in US Dollars, then probably
 the person who ones the second wallet work for the first one.
+
+In this research we do not consider de-anonymization in scenarios in which are
+used \textit{mixing} services. 
