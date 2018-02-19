@@ -68,20 +68,28 @@ addresses are ``public'' yet, so they are useless for the aim of our study.
 \texttt{Nduja} algorithm follows a sequence of 3 steps:
 \subsubsection*{Data retrieving} Firstly all the possible wallets are collected
 and inserted into the database. In order to do this the research on
-Twitter and Github and using Searchcode API is performed. The Addresses discovered are stored in relation to the account that advertised them.
-\todo{explain difference between Account and Wallet Address throughout the paper}
+Twitter and Github and using Searchcode API is performed. The addresses
+discovered are stored in relation to the account that advertised them.
+\todo{explain difference between Account and Wallet Address throughout the
+paper}
+In this paper we refer to \textit{Account} when we talk about a Twitter, Github
+or some other repositories host profile, instead with \textit{Address} or
+\textit{Wallet} we mean the public key of a wallet of a certain cryptocurrency.
 \subsubsection*{Account data retrieving} The second steps involves the
 retrieving of all possible data related to accounts inserted into the database
 in step 1: this is done using related API (e.g. Twitter API, Github Search API,
 Bitbucket API, ...) but also searching for emails and websites in the same file
 of the addresses.
 \subsubsection*{Clustering addresses} The last step consists in grouping 
-wallets that could be associated with the same person. In order to do so we take advantage of Blockchain.info API\footnote{\url{https://blockchain.info/api}},
+wallets that could be associated with the same person. In order to do so we
+take advantage of
+Blockchain.info API\footnote{\url{https://blockchain.info/api}},
 Chain.so API\footnote{\url{https://chain.so/api}} and
 Etherscan API\footnote{\url{https://etherscan.io/apis}}. These APIs allow
 developers to query Bitcoin, Ethereum, Litecoin and Dogecoin blockchains without
 having a local copy of the blockchain, that can counts hundreds of
-gigabytes~\cite{}\todo{Add citation for this assertion}.
+gigabytes~\cite{}\todo{Add citation for this assertion ->
+this? \url{https://bitinfocharts.com/}}.
 We used them to find out all the transactions regarding a single wallet
 in our database. 
 
@@ -99,7 +107,7 @@ Indeed as already stated by Satoshi Nakamoto~\cite{}:
 	other transactions that belonged to
 	the same owner.
 \end{quotation}
-
+\todo{Move where we start to explain our project?}
 
 
 
