@@ -31,7 +31,7 @@ It is also possible to send money to non-existent addresses: when someone will
 create a new wallet with that address it could redeem them.
 Each user could generate more wallets and they do not require any kind of
 authentication. It is recommended to generate a new address to each transaction
-to better preserve the anonymity\cite{satoshi}.
+to better preserve the anonymity~\cite{satoshi}.
 In order to use a certain address the
 owner of the wallet must know the private key associate with it, in fact if it
 will be lost there is no possibility to recover it. 
@@ -41,17 +41,21 @@ will be lost there is no possibility to recover it.
 After the success of Bitcoin other digital currencies take place. All these
 cryptocurrencies that are different from Bitcoin are called \textit{altcoins}
 (Alternative Coins)~\cite{bitcoinbeyond}. One of the most famous is 
-\textbf{Ethereum}. A characteristics of this cryptocurrency is that in ... a
-fork happened and we have two different version of this coin: \textbf{Ethereum
-Classic} and \textbf{Ethereum}. Lots of aspects are similar to Bitcoin: even
+\textbf{Ethereum}. The peculiar characteristic of this cryptocurrency is
+the language built-in in the blockchain. It allows the developers to 
+write their own smart-contracts and decentralized 
+applications~\cite{bib:ethereum:whitepaper}\todo{Explain the concept of
+smart-contracts and decentralized application?}.
+\todo{Do we keep the Ethereum Classic Stuff?}
+Lots of aspects are similar to Bitcoin: even
 this altcoin is based on blockchain, transactions are public, users are
 pseudo-anonymous. In Ethereum wallets are associated with 40 alphanumeric
-characters addresses that could has as prefix \texttt{0x}. Three other altcoins
-that have public transactions and were considered throughout our work are: 
-\textbf{Litecoin} and \textbf{Dogecoin}.
-The first one is a criptocurrency
-born in 2011 with the aim to improve Bitcoin and thought to be ``lighter''
-to create blocks. They changed the proof of work algorithm to permits the
+characters addresses that could has as prefix \texttt{0x}. 
+Two other altcoins that have public transactions and were considered
+throughout our work are: \textbf{Litecoin} and \textbf{Dogecoin}.
+The first one is a cryptocurrency born in 2011 with the aim to improve 
+Bitcoin and thought to be ``lighter'' to create blocks. 
+They changed the proof of work algorithm to permits the
 generation of a new block every 2.5 minutes rather than 10 minutes as in
 bitcoin~\cite{bib:litecoin:wiki}. 
 Litecoin wallets starts with \texttt{L} or \texttt{M} followed by an
@@ -68,9 +72,10 @@ Monero wallets are a 90 alphanumeric addresses that starts with \texttt{4}.
 
 
 \subsection{Pseudo-anonymity in Bitcoin system}
-We can define a subject as anonymous if subject is not identifiable within a
-set of subjects, denoted as the anonymity set~\cite{terminology}. Bitcoin system
-does not provide it because~\cite{deanon}
+We can define a subject as anonymous if the subject is not identifiable
+within a set of subjects, denoted as the anonymity 
+set~\cite{terminology}. Bitcoin system does not provide it 
+because~\cite{deanon}
 \begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
 \item The real-name authentication mechanism helps Bitcoin service providers to
 find the addresses that ever deposited and withdrew
