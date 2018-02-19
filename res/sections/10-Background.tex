@@ -1,90 +1,98 @@
 \section{Background}
 \subsection{Blockchain and Bitcoin}
-Bitcoin was the first criptocurrency developed that makes use of the Blockchain
-technology. Bitcoin and Blockchain rely on the digital signatures
-to prevent the repudiation of a transaction, without a third party check.
-To achieve this, it was designed a peer-to-peer payment system, in which each
-peer maintain a copy of the complete transaction history.
+Bitcoin was the first criptocurrency developed that makes use of the
+Blockchain technology. Bitcoin and Blockchain rely on the digital
+signatures to prevent the repudiation of a transaction, without a third
+party check.
+To achieve this, it was designed a peer-to-peer payment system,
+in which each peer maintain a copy of the complete transaction history.
 A transaction is a transfer of value from one wallet to another one.
 Once a transaction is built and signed by the sender, it is broadcasted.
 Some nodes of the bitcoin network, called \textit{miners}, collect the
 transactions into blocks and try to find a difficult
 proof-of-work~\cite{pricing}~\cite{hashcash} for the
-block, i.e., they need to find a nonce such that the hash of the block contains
-a certain number of leading zeros. 
+block, i.e., they need to find a nonce such that the hash of the block
+contains a certain number of leading zeros.
 If one miner succeeds it broadcast the block to the network.
-The remaining nodes check if the block's transactions are valid and wheter
-they were already spent or not.
-Since this operation is computationally difficult the succesful generation
-of a block is rewarded.
+The remaining nodes check if the block's transactions are valid and
+whether they were already spent or not.
+Since this operation is computationally difficult the successful
+generation of a block is rewarded.
 
 The blockchain technology becomes popular because it allows
 to prevent double spending problem without a third party by using
 transparent transactions.
-The bitcoin system preserves user personal privacy, giving them some sort of
-pseudo-anonymity.
-In this system every user owns at least one wallet, that is associated with an
-address. Addresses are 26-35 alphanumeric characters long and are indispensable
-in order to be able to exchange Bitcoins. In fact to transfer Bitcoind to
-another person you have to know her wallet address, that works as user account.
-It is also possible to send money to non-existent addresses: when someone will
-create a new wallet with that address it could redeem them.
-Each user could generate more wallets and they do not require any kind of
-authentication. It is recommended to generate a new address to each transaction
+The bitcoin system preserves user personal privacy, giving them some
+sort of pseudo-anonymity.
+In this system every user owns at least one wallet, that is associated
+with an address. Addresses are 26-35 alphanumeric characters long and
+are indispensable in order to be able to exchange Bitcoins.
+In fact to transfer Bitcoin to another person you have to know her
+wallet address, that works as user account.
+It is also possible to send money to non-existent addresses: when
+someone will create a new wallet with that address she could redeem
+them.
+Each user could generate more wallets and they do not require any kind
+of authentication\todo{Cosa intendi?}.
+It is recommended to generate a new address for each transaction
 to better preserve the anonymity~\cite{satoshi}.
-In order to use a certain address the
-owner of the wallet must know the private key associate with it, in fact if it
-will be lost there is no possibility to recover it. 
+In order to use a certain address the owner of the wallet must know
+the private key associate with it, in fact if it
+will be lost there is no possibility to recover it.
 
 
 \subsection{Altcoins}
-After the success of Bitcoin other digital currencies take place. All these
-cryptocurrencies that are different from Bitcoin are called \textit{altcoins}
-(Alternative Coins)~\cite{bitcoinbeyond}. One of the most famous is 
+After the success of Bitcoin other digital currencies took place.
+All these cryptocurrencies that are different from Bitcoin are called
+\emph{altcoins} (Alternative Coins)~\cite{bitcoinbeyond}.
+One of the most famous is
 \textbf{Ethereum}. The peculiar characteristic of this cryptocurrency is
-the language built-in in the blockchain. It allows the developers to 
-write their own smart-contracts and decentralized 
+the language built-in in the blockchain. It allows the developers to
+write their own smart-contracts and decentralized
 applications~\cite{bib:ethereum:whitepaper}\todo{Explain the concept of
 smart-contracts and decentralized application?}.
 \todo{Do we keep the Ethereum Classic Stuff?}
 Lots of aspects are similar to Bitcoin: even
 this altcoin is based on blockchain, transactions are public, users are
-pseudo-anonymous. In Ethereum wallets are associated with 40 alphanumeric
-characters addresses that could has as prefix \texttt{0x}. 
+pseudo-anonymous. In Ethereum wallets are associated with 40
+alphanumeric characters addresses that could has as prefix \texttt{0x}.
 Two other altcoins that have public transactions and were considered
 throughout our work are: \textbf{Litecoin} and \textbf{Dogecoin}.
-The first one is a cryptocurrency born in 2011 with the aim to improve 
-Bitcoin and thought to be ``lighter'' to create blocks. 
+The first one is a cryptocurrency born in 2011 with the aim to improve
+Bitcoin and thought to be ``lighter'' to create blocks.
 They changed the proof of work algorithm to permits the
 generation of a new block every 2.5 minutes rather than 10 minutes as in
-bitcoin~\cite{bib:litecoin:wiki}. 
+bitcoin~\cite{bib:litecoin:wiki}.
 Litecoin wallets starts with \texttt{L} or \texttt{M} followed by an
 alphanumeric string whose length is between 24 and 36 characters.
-The latter is an altcoin derived from Litecoin, born as a joke in 2013 but
-that rapidly increased its market capitalization, exceeding 1 billion dollars
-in January 2018~\cite{}. Dogecoin addresses
+The latter is an altcoin derived from Litecoin, born as a joke in 2013
+but that rapidly increased its market capitalization, exceeding 1
+billion dollars in January 2018~\cite{}. Dogecoin addresses
 starts with \texttt{D} followed by 33 alphanumeric characters.
-A slightly different altcoin is \textbf{Monero}: this currency was created with
-the aim of privacy, so the transaction chain is not public and there is no
-way to know how much money a wallet has collected and with which other wallets
-it sent transactions.
-Monero wallets are a 90 alphanumeric addresses that starts with \texttt{4}.
+A slightly different altcoin is \textbf{Monero}: this currency was
+created with the aim of privacy, so the transaction chain is not public
+and there is no way to know how much money a wallet has collected and
+with which other wallets it sent transactions.
+Monero wallets are a 90 alphanumeric addresses that starts with
+\texttt{4}.
 
 
 \subsection{Pseudo-anonymity in Bitcoin system}
 We can define a subject as anonymous if the subject is not identifiable
-within a set of subjects, denoted as the anonymity 
-set~\cite{terminology}. Bitcoin system does not provide it 
+within a set of subjects, denoted as the anonymity
+set~\cite{terminology}. Bitcoin system does not provide it
 because~\cite{deanon}
 \begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
-\item The real-name authentication mechanism helps Bitcoin service providers to
-find the addresses that ever deposited and withdrew
-\item a Bitcoin wallet advertised on Internet can be related to its owner
+\item The real-name authentication mechanism helps Bitcoin service
+providers to find the addresses that ever deposited and withdrew
+\item a Bitcoin wallet advertised on Internet can be related to its
+owner
 \item the chain of transactions is transparent
-\item exchanging inputs from an address to another one could expose the sender
-\item the change address of transactions could be classified by attackers to
-the sender.
+\item exchanging inputs from an address to another one could expose the
+sender
+\item the change address of transactions could be classified by
+attackers to the sender.
 \end{enumerate*}
-So in that context we can speak about pseudo-anonymity: until a user does not
-associate personal information with a certain wallet, she could be considered
-anonymous.
+So in that context we can speak about pseudo-anonymity: until a user
+does not associate personal information with a certain wallet, she
+could be considered anonymous.
