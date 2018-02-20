@@ -7,7 +7,16 @@ signatures to prevent the repudiation of a transaction, without a third
 party check~\cite{bib:anonAnalysis}.
 To achieve this, it was designed a peer-to-peer payment system,
 in which each peer maintain a copy of the complete transaction
-history~\cite{bib:fistful}. A transaction is defined as a transfer of value from one wallet to another one. Once a transaction is built and signed by the sender, it is broadcasted. Some nodes of the bitcoin network, called \textit{miners}, collect transactions into blocks and try to find a difficult proof-of-work~\cite{bib:pricing}~\cite{bib:hashcash} for the block, i.e., they need to find a nonce such that the hash of the block contains a certain number of leading zeros. If one miner succeeds it broadcast the block to the network. The remaining nodes check if the block's transactions are valid and whether they were already spent or not. Since this operation is computationally difficult the successful generation of a block is rewarded.~\cite{bib:satoshi}
+history~\cite{bib:fistful}. A transaction is defined as a transfer of value
+from one wallet to another one. Once a transaction is built and signed by the
+sender, it is broadcasted. Some nodes of the bitcoin network, called
+\textit{miners}, collect transactions into blocks and try to find a difficult
+proof-of-work~\cite{bib:pricing}~\cite{bib:hashcash} for the block, i.e., they
+need to find a nonce such that the hash of the block contains a certain number
+of leading zeros. If one miner succeeds it broadcast the block to the network.
+The remaining nodes check if the block's transactions are valid and whether
+they were already spent or not. Since this operation is computationally
+difficult the successful generation of a block is rewarded.~\cite{bib:satoshi}
 
 The blockchain technology becomes popular because it allows
 to prevent double spending problem without a third party by using
@@ -15,14 +24,16 @@ transparent transactions~\cite{bib:bitcoinbeyond}.
 The bitcoin system preserves user personal privacy, giving them some
 sort of pseudo-anonymity.
 In this system every user owns at least one wallet, that is associated
-with an address. Addresses are 26-35 alphanumeric characters~\cite{bib:bitcoinwiki:address}\footnote{We do not consider addresses in \texttt{Bech32} format. Their use is discurage until more support will be available~\cite{bib:bitcoinwiki:bech32}} long and
+with an address. Addresses are 26-35 alphanumeric
+characters~\cite{bib:bitcoinwiki:address}\footnote{We do not consider addresses
+in \texttt{Bech32} format. Their use is discouraged until more support will be
+available~\cite{bib:bitcoinwiki:bech32}} long and
 are indispensable in order to be able to exchange Bitcoins.
 In fact to transfer Bitcoin to another person you have to know her
 wallet address, that works as user account.
 It is also possible to send money to non-existent addresses: when
 someone will create a new wallet with that address she could redeem
-them.
-Each user could generate more wallets and they do not require any kind
+them. Each user could generate more wallets and they do not require any kind
 of personal data, only a private key and a computer connected to the Internet.
 It is recommended to generate a new address for each transaction
 to better preserve the anonymity~\cite{bib:satoshi}.
@@ -44,7 +55,8 @@ smart-contracts and decentralized application?}.
 Lots of aspects are similar to Bitcoin: even
 this altcoin is based on blockchain, transactions are public, users are
 pseudo-anonymous. In Ethereum wallets are associated with 40
-alphanumeric characters addresses that could has as prefix \texttt{0x}~\cite{bib:ethereum:whitepaper}.
+alphanumeric characters addresses that could has as prefix
+\texttt{0x}~\cite{bib:ethereum:whitepaper}.
 Two other altcoins that have public transactions and were considered
 throughout our work are: \textbf{Litecoin} and \textbf{Dogecoin}.
 The first one is a cryptocurrency born in 2011 with the aim to improve
@@ -67,7 +79,7 @@ Monero wallets are a 90 alphanumeric addresses that starts with
 
 
 \subsection{Pseudo-anonymity in Bitcoin system}
-We can define a subject as anonymous if the subject is not identifiable
+We can define a subject as \textit{anonymous} if the subject is not identifiable
 within a set of subjects, denoted as the anonymity
 set~\cite{bib:terminology}. Bitcoin system does not provide it
 because~\cite{bib:deanon}
