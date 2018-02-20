@@ -16,6 +16,7 @@ addons:
     - latex-xcolor
     - texlive-publishers
     - pgf
+    - biber
 script:
 - make
 after_failure:
