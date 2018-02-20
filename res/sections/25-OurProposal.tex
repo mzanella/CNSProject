@@ -1,3 +1,60 @@
-\section{Title of our proposal}
-Here we could explain our idea. We could compare it with previous works.
-Add evaluation if we implement something
+\section{Our proposal}
+%~ Here we could explain our idea. We could compare it with previous works.
+%~ Add evaluation if we implement something
+
+\subsection{Data retrieving}
+Data that we used to implement our idea is publicly available on the Web. In
+fact to bind physical people to wallet addresses we exploit the fact that
+people frequently advertise their own public keys to receive founds
+through donations.
+
+We build our data set by searching onto social networks and on developers'
+repositories (e.g. github) and then expanding it with different techniques
+explained in other studies~\cite{fistful}. Following our idea, after discovering
+a wallet we could certainly associate it with an account that could have some
+other public information. Because a person could have more than a single wallet
+we search for all transactions in which the wallet is involved and we suppose
+that all the addresses input of a certain transaction are under the control of
+the same person \cite{satoshi} \cite{deanon} \cite{fistful}.
+
+\subsubsection*{Twitter}
+We have chosen this social network because most \textit{tweets} of the users are
+public. There are several people that ask for donations for the most disparate
+purposes and, furthermore the owners of some accounts decide to donate some
+Bitcoins or altcoins to gain followers and popularity (e.g., using hashtag
+\texttt{\#BTCGiveAway}). They advertise their intent with a tweet, in which
+they ask the readers to follow them and reply with their own altcoin wallet.
+After some time the owner draw from the replies one of the authors and performs
+the donation.
+
+\subsubsection*{Repositories}
+Free-time developers that distribute their own software with free licenses may
+ask the users to contribute to their project with some Bitcoins or altcoins to
+guarantee the further development of their tools. The choice of targeting our
+research even on developers is because they are more likely to follow new
+technologies and proposal such as new cryptocurrencies. 
+
+\subsection{Cryptocurrencies we looked for}
+\label{subsec:currencies}
+The cryptocurrencies on which we focused our search are: Bitcoin, Ethereum,
+Litecoin, Dogecoin and Monero. This search could be easily expanded on every
+other altcoins knowing the pattern of the wallets' addresses. We focused our
+efforts on these because we have decide to choose three of the most famous
+cryptocurrencies (Bitcoin, Ethereum and Litecoin), Dogecoin because even if
+it was born as a joke, it reached a really high value. Finally, we even
+search for Monero addresses because it is a currency that does not allow to
+access to transaction chain, so we could only check how many users we could
+discover that advertise their Monero addresses, estimating the rate of use of
+it and this could give us how much information is lost trying to de-anonymize
+currencies with private transactions.
+
+\subsection{Methodology}
+\label{sec:methodology}
+After we have decided the set of cryptocurrencies that we would like to
+de-anonymize, listed in section~\ref{subsec:currencies}, we have defined for
+each of them the symbol (3 or 4 characters that identify a particular
+currency), the name and a regular expression that matches the addresses of a
+certain coin.
+
+Based on this information we build queries as explained in
+section~\ref{sec:queries}.
