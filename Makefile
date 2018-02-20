@@ -25,10 +25,10 @@ generate:
 	done; \
 
 quiet:
-	latexmk -jobname=$(OUTPUT_NAME) -pdflatex='$(COMPILER_OPTIONS)' -quiet -pdf main.tex;
+	latexmk -pdf main.tex;
 
 notquiet:
-	latexmk -jobname=$(OUTPUT_NAME) -pdflatex='$(COMPILER_OPTIONS)' -pdf main.tex;
+	latexmk -jobname=$(OUTPUT_NAME) -pdf main.tex;
 
 clean:
 	git clean -Xfd
