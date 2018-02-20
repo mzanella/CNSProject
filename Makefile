@@ -17,8 +17,11 @@ generate:
 	if [[ -a "res/$(LIST_NAME)" ]]; then echo "Removing res/$(LIST_NAME)"; \
 		rm res/$(LIST_NAME); fi; \
 	for i in $(sort $(wildcard $(PATH_OF_CONTENTS)/*.tex)); do \
-		echo "Adding $$i into $(LIST_NAME)"; \
-		echo "\input{$$i}" >> res/$(LIST_NAME); \
+		echo $i; \
+		if [[ $$i != "$(PATH_OF_CONTENTS)/Abstract.tex" ]]; then \
+			echo "Adding $$i into $(LIST_NAME)"; \
+			echo "\input{$$i}" >> res/$(LIST_NAME); \
+		fi \
 	done; \
 
 quiet:
