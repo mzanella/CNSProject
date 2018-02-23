@@ -1,13 +1,45 @@
+% SELECT COUNT(*) FROM Wallet WHERE 1; (before clustering)
 \newcommand{\startingNumberAllWallets}{18504}
+
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1; (before clustering)
 \newcommand{\startingNumberWalletsNotService}{14946}
+
+% SELECT COUNT(*) FROM Wallet WHERE Status = 1; (before clustering)
 \newcommand{\startingNumberWalletsAtLeastOneTransaction}{4356}
+
+% SELECT COUNT(*) FROM Wallet WHERE 1; (after clustering)
 \newcommand{\clusteringNumberAllWallets}{?!?}
+
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1; (after clustering)
 \newcommand{\clusteringNumberWalletsNotService}{?!?}
+
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='BTC';
+% (before clustering)
 \newcommand{\startingBTC}{4954}
+
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='LTC';
+% (before clustering)
 \newcommand{\startingLTC}{3050}
+
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='XMR';
 \newcommand{\startingXMR}{228}
+
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='ETH';
 \newcommand{\startingETH}{6714}
+
+% SELECT COUNT(*) FROM Account WHERE 1;
 \newcommand{\accountNumber}{4736}
+
+% SELECT (x*1.0)/(y*1.0) FROM
+% (
+%     SELECT COUNT(*) AS x
+%     FROM Wallet 
+%     WHERE Wallet.Status != -1
+% ), 
+% (
+%     SELECT COUNT(*) AS y
+%     FROM Account
+% )
 \newcommand{\avarageAccount}{$~$3.15}
 
 
