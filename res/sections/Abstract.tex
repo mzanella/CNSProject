@@ -1,16 +1,26 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 Many cryptocurrencies have come into existence in recent years, with Bitcoin
-the most famous among them. One of the most attracting feature of these
-currencies is the pseudo-anonymity: until a person you do not associate her
-personal information to a certain address, the owner of a wallet remains
-unknown. This property could be exploited in order to hide criminal
-activities, but it is also essential to preserve users privacy. There are lots
-of works that present techniques to preserve or augment the address privacy or
-to de-anonymize them. In this paper we present a possible privacy threat,
-binding wallet addresses to personal data of their owner. We exploit
-information publicly available on the web and the fact that users do not change
-their wallets at each transaction. In this way, it is not only possible to
-associate a person to a wallet but it is also possible to search for people
-that own multiple addresses, even if their are of different currencies.
-% keywords
+the most famous among them. One of the most attracting features of these
+currencies is the pseudo-anonymity: the owner of a wallet remains unknown until 
+it cannot be associated to her personal information. 
+This property is essential to preserve users' privacy, but it could be exploited to hide criminal activities. There is a large number of works that present techniques to preserve or augment the address privacy or to de-anonymize them.
+In this paper we analyze a well-known 
+privacy threat that exploits the multiple input transactions and the inexperiency of some users, that allow to bind wallets' addresses to personal
+data of their owner.
+To pursue this aim we firstly build a database of wallets bounded
+to people, exploiting information publicly available on the internet, e.g.
+advertized public keys for donations. 
+Secondly we elaborate the obtained results to correlate known accounts with other accounts, by taking advantage of
+the facts that the transaction history is public and that users do not change
+their wallets at each transaction as suggested in the best practices.
+
+We finally claim that some techniques described in the literature are not
+still valid, because the obtained results are not fully trustful and some
+correlations are spurious, probably due to the spread of mixing services and 
+users' awareness.
+
+
+
+
+
