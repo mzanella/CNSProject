@@ -17,6 +17,10 @@
 % (before clustering)
 \newcommand{\startingBTC}{1953}
 
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='DOGE' and inferred=0;
+% (before clustering)
+\newcommand{\startingDOGE}{654}
+
 % SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='LTC' and inferred=0;
 % (before clustering)
 \newcommand{\startingLTC}{813}
@@ -30,7 +34,7 @@
 % SELECT COUNT(*) FROM Account WHERE 1;
 \newcommand{\accountNumber}{3444}
 
-% SELECT (x*1.0)/(y*1.0) FROM
+% SELECT (x*1.0)/((y-1)*1.0) FROM
 % (
 %     SELECT COUNT(*) AS x
 %     FROM Wallet
@@ -40,10 +44,28 @@
 %     SELECT COUNT(*) AS y
 %     FROM Account
 % )
-\newcommand{\avarageAccount}{$~$3.785}
+\newcommand{\avarageAccount}{$~$3.786}
 
 %~ SELECT COUNT(*) FROM (SELECT DISTINCT * FROM AccountRelated)
 \newcommand{\accountRelated}{275}
+
+%~ SELECT count(*) FROM Account WHERE host = 'twitter.com'
+\newcommand{\accountTwitter}{888}
+
+%~ SELECT sum(x, y) FROM SELECT count(*) as x FROM Account WHERE host = 'github.com',
+\newcommand{\accountGithub}{2215}
+
+%~ SELECT count(*) as y FROM Account WHERE host LIKE 'bitcointalk.org'
+\newcommand{\accountBitcointalk}{337}
+
+%~ SELECT count(*) FROM Account WHERE host LIKE 'gitlab.com'
+\newcommand{\accountGitlab}{2}
+
+%~ SELECT count(*) FROM Account WHERE host LIKE 'bitbucket.org'
+\newcommand{\accountBitbucket}{1}
+
+
+
 
 
 \section{Results} \label{results}
