@@ -33,9 +33,9 @@
 % SELECT (x*1.0)/(y*1.0) FROM
 % (
 %     SELECT COUNT(*) AS x
-%     FROM Wallet 
+%     FROM Wallet
 %     WHERE Wallet.Status != -1
-% ), 
+% ),
 % (
 %     SELECT COUNT(*) AS y
 %     FROM Account
@@ -49,4 +49,27 @@
 \section{Results} \label{results}
 After we implemented and tested \texttt{Nduja} we run it. The first step of the
 algorithm give us \startingNumberAllWallets{} addresses,
-\startingNumberWalletsNotService{} addresses that probably are not services, but onl\startingNumberWalletsAtLeastOneTransaction{} of them we were able to attest that they had at least one trasaction. Finally, after the clustering, we increase this number to \clusteringNumberAllWallets{}, with \clusteringNumberWalletsNotService{} wallets that could be associate with services. In Figure~?!? is depicted the increase of wallet we found out. In Figure~?!? we can see how the addresses that we collected are distributed in the different currencies. As we expected the number of Monero and Ethereum wallets are lower than the other: Monero has private transactions, so it is not possible to analyze its blockchain, instead Ethereum does not allow multiple-input transactions, so it is not possible to cluster wallets as for the others. The number of Monero wallets found is \startingXMR{} and it could be so low even because it is an altcoin not so famous and it was born in order to preserve users privacy, so people could be more aware to advertise it. Addresses are connected to \accountNumber{} accounts, so most of them own more than one wallet, on average \avarageAccount{} \todo{Make calculation with final number of wallets} addresses per person. As we expected the currency on which we could retrieve more data is Bitcoin yet. Analyzing data collected we discover that for ?!? accounts we are able to connect a Twitter, Facebook or Linkedin account. The least social network is the most interesting, because people share more sensitive data on that because of its aim. In Figure~?!? this data are represented. Finally, ?!? accounts in our database are strongly related with at least another one: this means that we have discovered more than an account for a certain person or that are people that are in some way related.
+\startingNumberWalletsNotService{} addresses that probably are not services,
+but only \startingNumberWalletsAtLeastOneTransaction{} of them we were able to
+attest that they had at least one trasaction. Finally, after the clustering,
+we increase this number to \clusteringNumberAllWallets{}, with
+\clusteringNumberWalletsNotService{} wallets that could be associate with
+services. In Figure~?!? is depicted the increase of wallet we found out.
+In Figure~?!? we can see how the addresses that we collected are distributed
+in the different currencies. As we expected the number of Monero and Ethereum
+wallets are lower than the other: Monero has private transactions, so it is not
+possible to analyze its blockchain, instead Ethereum does not allow
+multiple-input transactions, so it is not possible to cluster wallets as for
+the others. The number of Monero wallets found is \startingXMR{} and it could
+be so low even because it is an altcoin not so famous and it was born in order
+to preserve users privacy, so people could be more aware to advertise it.
+Addresses are connected to \accountNumber{} accounts, so most of them own more
+than one wallet, on average \avarageAccount{} addresses per person.
+As we expected the currency on which
+we could retrieve more data is Bitcoin yet. Analyzing data collected we discover
+that for ?!? accounts we are able to connect a Twitter, Facebook or Linkedin
+account. The least social network is the most interesting, because people share
+more sensitive data on that because of its aim. In Figure~?!? this data are
+represented. Finally, ?!? accounts in our database are strongly related with at
+least another one: this means that we have discovered more than an account for
+a certain person or that are people that are in some way related.
