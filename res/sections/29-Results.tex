@@ -1,7 +1,8 @@
 % SELECT COUNT(*) FROM Wallet WHERE inferred=0; (before clustering)
 \newcommand{\startingNumberAllWallets}{10477}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 and inferred=0; (before clustering)
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 and inferred=0; (before
+% clustering)
 \newcommand{\startingNumberWalletsNotService}{6603}
 
 % SELECT COUNT(*) FROM Wallet WHERE Status = 1; (before clustering)
@@ -13,22 +14,27 @@
 % SELECT COUNT(*) FROM Wallet WHERE Status != -1; (after clustering)
 \newcommand{\clusteringNumberWalletsNotService}{13036}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='BTC' and inferred=0;
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='BTC' and
+% inferred=0;
 % (before clustering)
 \newcommand{\startingBTC}{1953}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='DOGE' and inferred=0;
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='DOGE' and
+% inferred=0;
 % (before clustering)
 \newcommand{\startingDOGE}{654}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='LTC' and inferred=0;
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='LTC' and
+% inferred=0;
 % (before clustering)
 \newcommand{\startingLTC}{813}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='XMR' and inferred=0 ;
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='XMR' and
+% inferred=0 ;
 \newcommand{\startingXMR}{228}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='ETH' and inferred=0;
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='ETH' and
+% inferred=0;
 \newcommand{\startingETH}{2953}
 
 % SELECT COUNT(*) FROM Account WHERE 1;
@@ -52,7 +58,8 @@
 %~ SELECT count(*) FROM Account WHERE host = 'twitter.com'
 \newcommand{\accountTwitter}{888}
 
-%~ SELECT sum(x, y) FROM SELECT count(*) as x FROM Account WHERE host = 'github.com',
+%~ SELECT sum(x, y) FROM SELECT count(*) as x FROM Account WHERE host =
+% 'github.com',
 \newcommand{\accountGithub}{2215}
 
 %~ SELECT count(*) as y FROM Account WHERE host LIKE 'bitcointalk.org'
@@ -69,29 +76,73 @@
 
 
 \section{Results} \label{results}
-After we implemented and tested \texttt{Nduja} we run it. The first step of the
-algorithm give us \startingNumberAllWallets{} addresses,
+After we implemented and tested \texttt{Nduja} we ran it. The first step of the
+algorithm gave us \startingNumberAllWallets{} addresses,
 \startingNumberWalletsNotService{} addresses that probably are not services,
 but only \startingNumberWalletsAtLeastOneTransaction{} of them we were able to
-attest that they had at least one trasaction. Finally, after the clustering,
-we increase this number to \clusteringNumberAllWallets{}, with
-\clusteringNumberWalletsNotService{} wallets that could be associate with
-services. In Figure~?!? is depicted the increase of wallet we found out.
-In Figure~?!? we can see how the addresses that we collected are distributed
-in the different currencies. As we expected the number of Monero and Ethereum
-wallets are lower than the other: Monero has private transactions, so it is not
-possible to analyze its blockchain, instead Ethereum does not allow
-multiple-input transactions, so it is not possible to cluster wallets as for
-the others. The number of Monero wallets found is \startingXMR{} and it could
-be so low even because it is an altcoin not so famous and it was born in order
+attest that they had at least one trasaction. We found out \startingBTC{}
+Bitcoin addresses, \startingLTC{} Litecoin addresses, \startingDOGE{}
+addresses, \startingETH{} addresses and finally \startingXMR{} Monero
+addresses. This is depicted in Figure~\ref{fig:numberaccountcurrency}.
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{number_account_currency}
+\label{fig:numberaccountcurrency}
+\end{figure}
+
+As we expected the currency on which we could retrieve more data is Bitcoin
+yet. 
+
+From those wallets \accountGithub{} came searching Github, \accountTwitter{}
+from Twitter. Exploiting Github search we found other \accountBitcointalk{}
+accounts that are related to Bitcointalk.org forum, because one of the
+repository listed them. Searchcode does not give us a useful improvement
+because we were able only to retrieve other 3 adddress (\accountGitlab{} from
+Gitlab and \accountBitbucket{} from Bitbucket) that were not already present in
+the Github's wallets. 
+
+After that we ran the clustering procedure \emph{only} on Litecoin and Dogecoin
+addresses. We excluded Bitcoin wallets for time reasons. For further details we
+remind to Section~\ref{sec:issues}. Ethereum and Monero were not considered
+because the first does not allow multiple-input transactions, so it is not
+possible to cluster wallets as for the other, instead the latter has private
+transactions, so it is not possible to analyze its transactions' history. 
+
+After the clustering, we increase the number of addresses discovered to
+\clusteringNumberAllWallets{}, with \clusteringNumberWalletsNotService{}
+wallets that could be associated with known services.
+
+In Figure~\ref{fig:dogeltcclustered} is depicted the increase of the number of
+wallets found.
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{number_inferred_DOGE_LTC}
+\label{fig:dogeltcclustered}
+\end{figure}
+
+The number of Monero wallets found is \startingXMR{} and it could
+be so low even because it is an altcoin not so used and it was born in order
 to preserve users privacy, so people could be more aware to advertise it.
-Addresses are connected to \accountNumber{} accounts, so most of them own more
-than one wallet, on average \avarageAccount{} addresses per person.
-As we expected the currency on which
-we could retrieve more data is Bitcoin yet. Analyzing data collected we discover
-that for ?!? accounts we are able to connect a Twitter, Facebook or Linkedin
-account. The least social network is the most interesting, because people share
-more sensitive data on that because of its aim. In Figure~?!? this data are
-represented. Finally, ?!? accounts in our database are strongly related with at
-least another one: this means that we have discovered more than an account for
-a certain person or that are people that are in some way related.
+
+Addresses are connected to \accountNumber{} accounts and on average we had
+\avarageAccount{} addresses per person.
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{numwall}
+\label{fig:numwall}
+\end{figure}
+The distribution of the number of wallets per account is represented in
+Figure~\ref{fig:numwall}. We considered only accounts with at most 28 related
+wallets, because for time reasons we set a maximum limit on the number of
+wallets. Therefore if a wallet has more than 29 wallets we cannot assert wether
+the account has actually 29 addresses or more.
+
+We were able to connect Facebook or Linkedin accounts to some of the wallets.
+In particular the latter social network is the most interesting, because people
+are more likely to share sensitive data on that because of its aim. 
+
+Finally, \accountRelated{} accounts in our database are strongly related with
+at least another one: this means that one of their addresses are used toghether
+as input in the same transaction. During the analysis of those relations we
+found out that some of them are ``spurious'': the wallets seems to belong to
+different people.
