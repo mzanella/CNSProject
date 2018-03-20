@@ -10,13 +10,14 @@ is composed by four main modules, represented in Figure\ref{fig:architecture}:
 \begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
 \item \walletcollector{} is a set of classes whose aim is to retrieve
 addresses of different cryptocurrencies. It provides a different class for each
-different source used, following the exact same interface
+different source used, following the exact same interface;
 \item \userinforetriever{} is a set of classes that, based on which
 site a wallet is discovered, retrieve some information (e.g. name, email,
 personal website) related to the owner of that wallet
 \item \addresschecker{} is a module that have to check if a sequence of
-characters recognized as an address is a real and used addresses. For certain
-altcoins it is not possible to perform this validation action accurately, e.g.
+characters recognized as an address is a valid address and whether it is
+involved at least in one transaction or not. For certain
+altcoins it is not possible to perform this validation accurately, e.g.
 Monero has private transactions, so it is not possible to find out that
 information
 \item \graph{} is the module responsible for analyzing the transaction graph
@@ -32,12 +33,12 @@ in order to retrieve the clusters.
 \label{fig:architecture}
 \end{figure}
 
-\subsection{Queries} 
+\subsection{Queries}
 \label{sec:queries}
 In order to maximize the number of possible results in repositories the module
 \walletcollector{} searches for files that contains words such as
 \textbf{donation} or \textbf{contribution} and in which there is a set of
-characters that matches the provided regular expressions defined for the 
+characters that matches the provided regular expressions defined for the
 different address formats. This has been implemented using two different APIs:
 Github Search API \footnote{\url{https://developer.github.com/v3/search/}} and
 Searchcode API \footnote{\url{https://searchcode.com/api/}}.
@@ -49,10 +50,12 @@ been done using Twitter API
 However, it has a strong limitation: we are only able to retrieve tweets that
 were published at most a week before the search. This limitation is imposed
 because we have not paid for a premium account. In fact our research must be
-thought as a proof of concept. Even if you want to use a free account you can
-collect a huge amount of data doing those queries weekly: the information
-before the first search is lost without a premium account, but, following this
-idea it is possible to collect incrementally all the future addresses.
+thought as a proof of concept.
+Although this limitation even with a free account one can collect a huge amount
+of data by performing those queries weekly:
+the information before the first search is lost without a premium account, but,
+following this idea it is possible to collect incrementally all the future
+addresses.
 
 \subsection{Database}
 All data we have retrieved is stored into a
@@ -61,11 +64,13 @@ with the indication that if they are wallets retrieved from the websites we
 search, if they are inferred or they are ``tagged'' addresses. These are
 wallets that are known \emph{a priori}, i.e. that are used by well-known
 services, such as mixing services or betting games as
-\textit{SatoshiDICE}\footnote{\url{satoshidice.com}}. 
+\textit{SatoshiDICE}\footnote{\url{satoshidice.com}}.
 We excluded that kind of
 services from data retrieving process for two reasons: the first is that we did
 not want that the number of addresses explode, the latter is that these
 addresses are ``public'' yet, so they are useless for the aim of our study.
+\todo{Add sentence about the storage of these addresses to avoid explosion
+	of addresses??? }
 
 \subsection{Algorithm}
 \texttt{Nduja} algorithm follows a sequence of 3 steps:
@@ -79,10 +84,11 @@ or \textit{Wallet} we mean the public key of a wallet of a certain
 cryptocurrency.
 \subsubsection*{Account data retrieving} The second steps involves the
 retrieving of all possible data related to accounts inserted into the database
-in step 1: this is done using related API (e.g. Twitter API, Github Search API,
-Bitbucket API, ...) but also searching for emails and websites in the same file
-of the addresses.
-\subsubsection*{Clustering addresses} The last step consists in grouping 
+in the first step: this is done using related APIs
+(e.g. Twitter API, Github Search API, Bitbucket API, etc.) but also searching for emails and websites in the same file
+of the addresses.\todo{This is true for github but also for twitter???}
+
+\subsubsection*{Clustering addresses} The last step consists in grouping
 wallets that could be associated with the same person. In order to do so we
 take advantage of
 Blockchain.info API\footnote{\url{https://blockchain.info/api}},
@@ -92,7 +98,8 @@ developers to query Bitcoin's, Ethereum's, Litecoin's and Dogecoin's
 blockchains without having a local copy of the blockchain, that can counts
 hundreds of gigabytes~\cite{bib:bitinfochart}. We used them to find out all the
 transactions regarding a single wallet in our database.
-
+\todo{Explain that we used it only for Litecoin and Dogecoin, because
+Ethereum does not have multiinput transactions}
 After that we looked for transactions with multiple inputs that
 involve wallets that we connected to a certain person in order to create a
 ``cluster'' of wallet of the same user.
