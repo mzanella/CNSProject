@@ -10,7 +10,7 @@ is composed by four main modules, represented in Figure\ref{fig:architecture}:
 \begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
 \item \walletcollector{} is a set of classes whose aim is to retrieve
 addresses of different cryptocurrencies. It provides a different class for each
-different source used, following the exact same interface.
+different source used, following the exact same interface
 \item \userinforetriever{} is a set of classes that, based on which
 site a wallet is discovered, retrieve some information (e.g. name, email,
 personal website) related to the owner of that wallet
@@ -40,18 +40,16 @@ In order to maximize the number of possible results in repositories the module
 characters that matches the provided regular expressions defined for the 
 different address formats. This has been implemented using two different APIs: Github Search API \footnote{\url{https://developer.github.com/v3/search/}} and
 Searchcode API \footnote{\url{https://searchcode.com/api/}}.
-Instead, in order to query Twitter we looked for the same keywords that in the
-repositories but also for \textit{hashtags} such as \textbf{\#GiveAway} or for
+Instead, in order to query Twitter we looked for the same keywords than in the
+repositories, but also for \textit{hashtags} such as \textbf{\#GiveAway} or for
 hashtags correlated to specific cryptocurrency (e.g. \#BTCGiveAway). This has
 been done using Twitter API
 \footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}.
-Twitter API has a strong limitation: we are only able to retrieve tweets that
-are published at most a week before the search. This limitation is imposed
+However, it has a strong limitation: we are only able to retrieve tweets that
+were published at most a week before the search. This limitation is imposed
 because we have not paid for a premium account. In fact our research must be
-thought as a proof of concept. Even if you would use a free account you can
-collect incremental data doing the query weekly: the information before the
-first search is lost without a premium account, but, following this idea it is
-possible to collect all the future addresses.
+thought as a proof of concept. Even if you want to use a free account you can
+collect a huge amount of data doing those queries weekly: the information before the first search is lost without a premium account, but, following this idea it is possible to collect incrementally all the future addresses.
 
 \subsection{Database}
 All data we have retrieved is stored into a
@@ -69,7 +67,7 @@ addresses are ``public'' yet, so they are useless for the aim of our study.
 \texttt{Nduja} algorithm follows a sequence of 3 steps:
 \subsubsection*{Data retrieving} Firstly all possible wallets are collected
 and inserted into the database. In order to do this the research on
-Twitter and Github and using Searchcode API is performed. The addresses
+Twitter, Github and using Searchcode API is performed. The addresses
 discovered are stored in relation to the account that advertised them.
 In this paper we refer to \textit{Account} when we talk about a Twitter, Github
 or some other repositories host profile, instead with the word \textit{Address}
