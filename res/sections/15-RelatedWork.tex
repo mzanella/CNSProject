@@ -1,49 +1,49 @@
 \section{Related work} \label{relworks}
 As the popularity of Bitcoins and altcoins grow, the number of work on
-de-anonymization their transactions increases.
+de-anonymization of their transactions increases.
 There are mainly two kinds of approaches.
 
-The fist method exploits the structure of peers and connection on which the
-blockchain relies to attack anonymity of transactions. In~\cite{bib:anonBitcoin}
-the authors propose a system in which they bind IP addresses to transactions to
-define the ownership of transactions. Another valuable study
-is~\cite{bib:deanonP2P}. In the latter authors propose an attack to Bitcoin
-infrastructure that they claim to work even in challenging scenarios (e.g.
-bypassing firewalls and NATs) with a few number of computers. We do not follow
-this idea because we do not want to bind IP addresses to transaction, but rather
-physical person to transaction. Another problem is that this kind of approach
-could be computationally heavy. The other technique, instead, has no
+The first method exploits the structure of the underlying p2p network on which
+the blockchain relies to attack anonymity of transactions.
+In~\cite{bib:anonBitcoin} the authors propose a system in which they bind IP
+addresses to transactions to define the ownership of transactions. Another
+valuable study is~\cite{bib:deanonP2P}. In the latter the authors propose an attack
+to Bitcoin infrastructure that they claim to work even in challenging scenarios
+(e.g. bypassing firewalls and NATs) with a few number of computers. We do not
+follow this idea because we do not want to bind IP addresses to transaction,
+but rather physical person to transaction. Another problem is that this kind of
+approach could be computationally heavy. The other technique, instead, has no
 requirements on the computational power.
 
 An orthogonal approach, that is the one that we followed, is to search for
-public information on the Web in order to discover find out that are advertised
+public information on the Web in order to find out the wallets advertised
 by the owner and afterwards infer other related wallets. This approach is used
 in~\cite{bib:anonAnalysis}: the authors retrieved public available addresses from Bitcoin dedicated forums in order to discover related wallets. This approach is
 explained with a graph view of the transaction occurred in the blockchain:
-addresses are the vertexes and transactions instead are the edges. In this
+addresses are the vertexes and transactions are the edges. In this
 graph, called \textit{user graph} addresses inputs of the same transaction are
 clustered in a single node because owned by the same person. This privacy
 problem was for the first time issued by Satoshi Nakamoto and comes out
 because people do not generate new wallets for each transaction as he
 suggested~\cite{bib:satoshi}. Another work based on that idea
 is~\cite{bib:fistful}.
-These works are pretty old (they are done 2011) and they focus only on Bitcoins
+These works are pretty old (they were published in 2011) and they focus only on Bitcoins
 and in retrieving addresses from Bitcoin forums. A possible issue is the
 multi-signature native support of Bitcoins. This requires that a transaction,
 to be valid, is signed with more than a single public
 key~\cite{bib:multisignature}: in this scenario all this addresses will be
 grouped in the same cluster. A more fine grained study of this cluster will
 probably find out the differences, if integrated with different techniques. We
-must consider that multi-signature usually application involve closely related
+must consider that the use of multi-signature wallets typically involve closely related
 people~\cite{bib:multisignaturebitcoinwiki}, so for certain application can be
 useful to group this people together.
 
-Other related studies concentrate on transaction profiling.
+Other related studies focus on transaction profiling.
 In~\cite{bib:fullDiscl} is
 proposed a profiling transaction model in the Bitcoin environment. The
 simplest example is the following: if we have 2 addresses and the first one
 sends periodically the same amount of Bitcoins in US Dollars, then probably
-the person who owns the second wallet work for the first one.
+the person who owns the second wallet works for the first one.
 
 In this research we do not consider de-anonymization in scenarios in which are
 used \textit{mixing} services. These kind of services are used to augment
@@ -51,6 +51,5 @@ transactions' anonymity: basically they put some noise in the transaction
 history to make it harder to identify senders and receivers.
 % basically, a user sends money to these services that
 % are mixed and gave back to the initial user generating new addresses. 
-These anonymizing techniques are largely used in illegal purchase or because
-that moneys are involved in some sort of crimes, the most important is money
+These anonymizing techniques are largely used in illegal purchase or money
 laundering~\cite{bib:laundering}.
