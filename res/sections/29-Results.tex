@@ -1,34 +1,34 @@
-% SELECT COUNT(*) FROM Wallet WHERE 1; (before clustering)
-\newcommand{\startingNumberAllWallets}{18504}
+% SELECT COUNT(*) FROM Wallet WHERE inferred=0; (before clustering)
+\newcommand{\startingNumberAllWallets}{10477}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1; (before clustering)
-\newcommand{\startingNumberWalletsNotService}{14946}
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 and inferred=0; (before clustering)
+\newcommand{\startingNumberWalletsNotService}{6603}
 
 % SELECT COUNT(*) FROM Wallet WHERE Status = 1; (before clustering)
-\newcommand{\startingNumberWalletsAtLeastOneTransaction}{4356}
+\newcommand{\startingNumberWalletsAtLeastOneTransaction}{1741}
 
 % SELECT COUNT(*) FROM Wallet WHERE 1; (after clustering)
-\newcommand{\clusteringNumberAllWallets}{?!?}
+\newcommand{\clusteringNumberAllWallets}{16910}
 
 % SELECT COUNT(*) FROM Wallet WHERE Status != -1; (after clustering)
-\newcommand{\clusteringNumberWalletsNotService}{?!?}
+\newcommand{\clusteringNumberWalletsNotService}{13036}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='BTC';
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='BTC' and inferred=0;
 % (before clustering)
-\newcommand{\startingBTC}{4954}
+\newcommand{\startingBTC}{1953}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='LTC';
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='LTC' and inferred=0;
 % (before clustering)
-\newcommand{\startingLTC}{3050}
+\newcommand{\startingLTC}{813}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='XMR';
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='XMR' and inferred=0 ;
 \newcommand{\startingXMR}{228}
 
-% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='ETH';
-\newcommand{\startingETH}{6714}
+% SELECT COUNT(*) FROM Wallet WHERE Status != -1 AND Currency='ETH' and inferred=0;
+\newcommand{\startingETH}{2953}
 
 % SELECT COUNT(*) FROM Account WHERE 1;
-\newcommand{\accountNumber}{4736}
+\newcommand{\accountNumber}{3444}
 
 % SELECT (x*1.0)/(y*1.0) FROM
 % (
@@ -40,7 +40,10 @@
 %     SELECT COUNT(*) AS y
 %     FROM Account
 % )
-\newcommand{\avarageAccount}{$~$3.15}
+\newcommand{\avarageAccount}{$~$3.785}
+
+%~ SELECT COUNT(*) FROM (SELECT DISTINCT * FROM AccountRelated)
+\newcommand{\accountRelated}{275}
 
 
 \section{Results} \label{results}
