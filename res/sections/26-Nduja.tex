@@ -41,8 +41,8 @@ characters that matches the provided regular expressions defined for the
 different address formats. This has been implemented using two different APIs:
 Github Search API \footnote{\url{https://developer.github.com/v3/search/}} and
 Searchcode API \footnote{\url{https://searchcode.com/api/}}.
-Instead, in order to query Twitter we looked for the same keywords than in the
-repositories, but also for \textit{hashtags} such as \textbf{\#GiveAway} or for
+In addition to the keywords searched in Github, in Twtter we searched also for
+\textit{hashtags} such as \textbf{\#GiveAway} and
 hashtags correlated to specific cryptocurrency (e.g. \#BTCGiveAway). This has
 been done using Twitter API
 \footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}.
@@ -57,7 +57,7 @@ following this idea it is possible to collect incrementally all the future
 addresses.
 
 \subsection{Database}
-All data we have retrieved is stored into a
+All data retrieved is stored into a
 SQLite\footnote{\url{https://www.sqlite.org/}} database. Addresses are stored
 with the indication that if they are wallets retrieved from the websites we
 search, if they are inferred or they are ``tagged'' addresses. These are
@@ -67,7 +67,7 @@ services, such as mixing services or betting games as
 The reason to exclude this kind of addresses is twofold: the former is that we
 do not want that the number of addresses in the clustering phase explodes for
 both time and storage constraints and the latter is that these
-addresses are ``public'' yet, so they are useless for the sake of our study.
+addresses are already ``public'', so they are useless for the sake of our study.
 
 \subsection{Algorithm}
 \texttt{Nduja} algorithm follows a sequence of 3 steps:
@@ -93,7 +93,7 @@ Blockchain.info API\footnote{\url{https://blockchain.info/api}},
 Chain.so API\footnote{\url{https://chain.so/api}} and
 Etherscan API\footnote{\url{https://etherscan.io/apis}}. These APIs allow
 developers to query Bitcoin's, Ethereum's, Litecoin's and Dogecoin's
-blockchains without having a local copy of them, that can counts
+blockchains without having a local copy of them, that can count
 hundreds of gigabytes~\cite{bib:bitinfochart}. We used the APIs to find out all
 the transactions regarding a single wallet in our database.
 Afterward we looked for transactions with multiple inputs that

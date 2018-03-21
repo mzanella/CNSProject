@@ -89,24 +89,25 @@ addresses. This is depicted in Figure~\ref{fig:numberaccountcurrency}.
 \end{figure}
 
 As we expected the currency on which, potentially, we could retrieve more data
-is Bitcoin yet. The number of Monero wallets found is \startingXMR{} and it
+is still Bitcoin. The number of Monero wallets found is \startingXMR{} and it
 could be so low even because it is an altcoin not so used and it was born in
 order to preserve users privacy, so people could be more aware to advertise it.
 
-From those wallets \accountGithub{} came searching Github, \accountTwitter{}
+From those wallets \accountGithub{} came by searching Github, \accountTwitter{}
 from Twitter. Exploiting Github search we found other \accountBitcointalk{}
 accounts that are related to \url{bitcointalk.org} forum, because one of the
-repository listed them. Searchcode does not give us a useful improvement
+repository listed them. Searchcode did not give us a useful improvement
 because we were able only to retrieve other 3 addresses (\accountGitlab{} from
 Gitlab and \accountBitbucket{} from Bitbucket) that were not already present in
 the Github's wallets. 
 
 After that we ran the clustering procedure \emph{only} on Litecoin and Dogecoin
-addresses. We excluded Bitcoin wallets for time reasons. For further details we
-remind to Section~\ref{sec:issues}. Ethereum and Monero were not considered
+addresses. We excluded Bitcoin wallets due to time constraints.
+For further details we
+refer to Section~\ref{sec:issues}. Ethereum and Monero were not considered
 because the first does not allow multiple-input transactions, so it is not
 possible to cluster wallets as for the other, instead the latter has private
-transactions, so it is not possible to analyze its transactions' history. 
+transactions, so it is not possible to analyze its transaction history. 
 
 After the clustering, we increase the number of addresses discovered to
 \clusteringNumberAllWallets{}, with \clusteringNumberWalletsNotService{}
@@ -127,9 +128,10 @@ Addresses are connected to \accountNumber{} accounts and on average we had
 
 The distribution of the number of wallets per account is represented in
 Figure~\ref{fig:numwall}. We considered only accounts with at most 28 related
-wallets, because for time reasons we set a maximum limit on the number of
-wallets. Therefore if a wallet has more than 29 wallets we cannot assert wether
-the account has actually 29 addresses or more.
+wallets by setting a maximum limit on the number of
+wallets to spare time.
+Therefore if a wallet had more than 29 wallets we could not assert whether
+the account had actually 29 addresses or more.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{numwall}
