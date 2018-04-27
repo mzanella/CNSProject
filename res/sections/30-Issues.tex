@@ -7,10 +7,8 @@ addresses and Ethereum wallet public keys have the same format. We filtered out
 the majority of false positives with \texttt{address\_checker} module. We spent
 a good deal of time cleaning the database manually. Finally, we kept only about
 the 45\% of the original addresses. 
-
 Another issue is the fact that we had at our dispose addresses
 of well-known services only for Bitcoin and not for the other altcoins.
-
 We clustered only Litecoin and Dogecoin addresses for the following reasons.
 First of all the clustering phase using Web APIs is extremely slow, because of
 their rate limits: in fact Dogecoin clustering took about one week, Litecoin
