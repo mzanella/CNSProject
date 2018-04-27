@@ -71,6 +71,10 @@
 %~ SELECT count(*) FROM Account WHERE host LIKE 'bitbucket.org'
 \newcommand{\accountBitbucket}{1}
 
+\newcommand{\facebookRelatedAccounts}{12}
+\newcommand{\linkedinRelatedAccount}{30}
+
+
 \section{Results} \label{results}
 After we implemented and tested \texttt{Nduja} we ran it. The first step of the
 algorithm gave us \startingNumberAllWallets{} addresses,
@@ -107,7 +111,7 @@ for DOGE and LTC}
 \caption{Results of our study}
 \end{figure*}
 As we expected the currency on which, potentially, we could retrieve more data
-is still Bitcoin. The number of Monero wallets found is \startingXMR{}. 
+is still Bitcoin. The number of Monero wallets found is \startingXMR{}.
 There are several possible explanations for this low finding. On the one
 hand Monero has a smaller userbase than the other examined altcoins. On
 the other hand it was born to preserve users' privacy, so people could be more
@@ -139,11 +143,13 @@ wallets by setting a maximum limit on the number of
 wallets to spare time.
 Therefore if a wallet had more than 29 wallets we could not assert whether
 the account had actually 29 addresses or more.
-We were able to connect Facebook or Linkedin accounts to some of the wallets.
+We were able to bind \facebookRelatedAccounts{} and \linkedinRelatedAccount{}
+accounts to their Facebook and Linkedin contacts, respectively.
+This two sets do not have intersection.
 In particular the latter social network is the most interesting, because people
-are more likely to share sensitive data on that because of its aim.
+are more likely to share sensitive data on this platform because of its aim.
 Finally, \accountRelated{} accounts in our database are strongly related with
 at least another one: this means that one of their addresses are used together
-as input in the same transaction. During the analysis of those relations we
-found out that some of them are ``spurious'': the wallets seems to belong to
-different people.
+as input in the same Dogecoin or Litecoin transaction. During the analysis of
+those relations we found out that some of them are ``spurious'': the wallets
+seems to belong to different people.
