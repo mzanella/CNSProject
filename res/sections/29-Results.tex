@@ -81,66 +81,66 @@ attest that they had at least one transaction. We found out \startingBTC{}
 Bitcoin addresses, \startingLTC{} Litecoin addresses, \startingDOGE{}
 addresses, \startingETH{} addresses and finally \startingXMR{} Monero
 addresses. This is depicted in Figure~\ref{fig:numberaccountcurrency}.
-\begin{figure}[H]
+
+
+\begin{figure*}
 \centering
-\includegraphics[width=\columnwidth]{number_account_currency}
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[width=.9\textwidth, height=3.5cm]{number_account_currency}
 \caption{Number of wallets retrieved for each currency}
 \label{fig:numberaccountcurrency}
-\end{figure}
-
-As we expected the currency on which, potentially, we could retrieve more data
-is Bitcoin yet. The number of Monero wallets found is \startingXMR{} and it
-could be so low even because it is an altcoin not so used and it was born in
-order to preserve users privacy, so people could be more aware to advertise it.
-
-From those wallets \accountGithub{} came searching Github, \accountTwitter{}
-from Twitter. Exploiting Github search we found other \accountBitcointalk{}
-accounts that are related to \url{bitcointalk.org} forum, because one of the
-repository listed them. Searchcode does not give us a useful improvement
-because we were able only to retrieve other 3 addresses (\accountGitlab{} from
-Gitlab and \accountBitbucket{} from Bitbucket) that were not already present in
-the Github's wallets. 
-
-After that we ran the clustering procedure \emph{only} on Litecoin and Dogecoin
-addresses. We excluded Bitcoin wallets for time reasons. For further details we
-remind to Section~\ref{sec:issues}. Ethereum and Monero were not considered
-because the first does not allow multiple-input transactions, so it is not
-possible to cluster wallets as for the other, instead the latter has private
-transactions, so it is not possible to analyze its transactions' history. 
-
-After the clustering, we increase the number of addresses discovered to
-\clusteringNumberAllWallets{}, with \clusteringNumberWalletsNotService{}
-wallets, without considering known services.
-
-In Figure~\ref{fig:dogeltcclustered} is depicted the increase of the number of
-wallets found.
-\begin{figure}[H]
-\centering
-\includegraphics[width=\columnwidth]{number_inferred_DOGE_LTC}
+\end{subfigure}
+~
+\begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[width=.9\textwidth, height=3.5cm]{number_inferred_DOGE_LTC}
 \caption{Comparison between the number of wallets before and after clustering
 for DOGE and LTC}
 \label{fig:dogeltcclustered}
-\end{figure}
-
-Addresses are connected to \accountNumber{} accounts and on average we had
-\avarageAccount{} addresses per person.
-
-The distribution of the number of wallets per account is represented in
-Figure~\ref{fig:numwall}. We considered only accounts with at most 28 related
-wallets, because for time reasons we set a maximum limit on the number of
-wallets. Therefore if a wallet has more than 29 wallets we cannot assert wether
-the account has actually 29 addresses or more.
-\begin{figure}[H]
+\end{subfigure}
+~
+\begin{subfigure}[t]{0.3\textwidth}
 \centering
-\includegraphics[width=\columnwidth]{numwall}
+\includegraphics[width=.9\textwidth, height=3.5cm]{numwall}
 \caption{Distribution of the number of wallets per account}
 \label{fig:numwall}
-\end{figure}
-
+\end{subfigure}
+\caption{Results of our study}
+\end{figure*}
+As we expected the currency on which, potentially, we could retrieve more data
+is still Bitcoin. The number of Monero wallets found is \startingXMR{} and it
+could be so low even because it is an altcoin not so used and it was born in
+order to preserve users privacy, so people could be more aware to advertise it.
+From those wallets \accountGithub{} came by searching Github, \accountTwitter{}
+from Twitter. Exploiting Github search we found other \accountBitcointalk{}
+accounts that are related to \url{bitcointalk.org} forum, because one of the
+repository listed them. Searchcode did not give us a useful improvement
+because we were able only to retrieve other 3 addresses (\accountGitlab{} from
+Gitlab and \accountBitbucket{} from Bitbucket) that were not already present in
+the Github's wallets.
+After that we ran the clustering procedure \emph{only} on Litecoin and Dogecoin
+addresses. We excluded Bitcoin wallets due to time constraints.
+For further details we
+refer to Section~\ref{sec:issues}. Ethereum and Monero were not considered
+because the first does not allow multiple-input transactions, so it is not
+possible to cluster wallets as for the other, instead the latter has private
+transactions, so it is not possible to analyze its transaction history. 
+After the clustering, we increase the number of addresses discovered to
+\clusteringNumberAllWallets{}, with \clusteringNumberWalletsNotService{}
+wallets, without considering known services.
+In Figure~\ref{fig:dogeltcclustered} is depicted the increase of the number of
+wallets found.
+Addresses are connected to \accountNumber{} accounts and on average we had
+\avarageAccount{} addresses per person.
+The distribution of the number of wallets per account is represented in
+Figure~\ref{fig:numwall}. We considered only accounts with at most 28 related
+wallets by setting a maximum limit on the number of
+wallets to spare time.
+Therefore if a wallet had more than 29 wallets we could not assert whether
+the account had actually 29 addresses or more.
 We were able to connect Facebook or Linkedin accounts to some of the wallets.
 In particular the latter social network is the most interesting, because people
-are more likely to share sensitive data on that because of its aim. 
-
+are more likely to share sensitive data on that because of its aim.
 Finally, \accountRelated{} accounts in our database are strongly related with
 at least another one: this means that one of their addresses are used together
 as input in the same transaction. During the analysis of those relations we

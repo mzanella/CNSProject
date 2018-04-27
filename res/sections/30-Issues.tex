@@ -3,16 +3,14 @@ During the collecting phase we inserted into the database a large number of
 false positives, especially Ethereum addresses. This is due to the fact that
 Ethereum addresses are simply 20 bytes hexadecimal number that could appear
 also without the \texttt{0x} prefix. Another problem is that smart contract
-addresses and Ethereum wallet public keys have the same format. We filter out
+addresses and Ethereum wallet public keys have the same format. We filtered out
 the majority of false positives with \texttt{address\_checker} module. We spent
 a good deal of time cleaning the database manually. Finally, we kept only about
 the 45\% of the original addresses. 
-
-Another issue is the fact that we had at our dispose a list of known services'
-addresses only for Bitcoin and not for the others.
-
+Another issue is the fact that we had at our dispose addresses
+of well-known services only for Bitcoin and not for the other altcoins.
 We clustered only Litecoin and Dogecoin addresses for the following reasons.
-First of all the clustering phase using Web APIs is extremely slow, because
+First of all the clustering phase using Web APIs is extremely slow, because of
 their rate limits: in fact Dogecoin clustering took about one week, Litecoin
 five days.
 We desisted from doing the same for Bitcoin because the starting number of
@@ -24,8 +22,8 @@ approaches: on the one side we tried to build the mapping wallet-transactions
 and on the other side we exploited the possibility to import so called
 ``watch-only'' addresses making us able to access directly all the transaction
 of addresses imported. The first approach was abandoned because it
-requires too much time and the data were too huge. The latter because of the
+required too much time and the data were too huge. The latter because of the
 continuous rescanning of the blockchain each time new wallets were imported.
 That obliged us to restart the client multiple times during a single run and
-this lead to a client misbehavior. Also the rescanning phase is a really
+this led to a client misbehavior. Also the rescanning phase is a really
 time consuming task.
