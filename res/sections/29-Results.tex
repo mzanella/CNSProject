@@ -80,7 +80,7 @@ but only \startingNumberWalletsAtLeastOneTransaction{} of them we were able to
 attest that they had at least one transaction. We found out \startingBTC{}
 Bitcoin addresses, \startingLTC{} Litecoin addresses, \startingDOGE{}
 addresses, \startingETH{} addresses and finally \startingXMR{} Monero
-addresses. This is depicted in Figure~\ref{fig:numberaccountcurrency}.
+addresses. This is depicted in~\autoref{fig:numberaccountcurrency}.
 
 
 \begin{figure*}
@@ -121,19 +121,19 @@ the Github's wallets.
 After that we ran the clustering procedure \emph{only} on Litecoin and Dogecoin
 addresses. We excluded Bitcoin wallets due to time constraints.
 For further details we
-refer to Section~\ref{sec:issues}. Ethereum and Monero were not considered
+refer to~\autoref{sec:issues}. Ethereum and Monero were not considered
 because the first does not allow multiple-input transactions, so it is not
 possible to cluster wallets as for the other, instead the latter has private
-transactions, so it is not possible to analyze its transaction history. 
+transactions, so it is not possible to analyze its transaction history.
 After the clustering, we increase the number of addresses discovered to
 \clusteringNumberAllWallets{}, with \clusteringNumberWalletsNotService{}
 wallets, without considering known services.
-In Figure~\ref{fig:dogeltcclustered} is depicted the increase of the number of
+In~\autoref{fig:dogeltcclustered} is depicted the increase of the number of
 wallets found.
 Addresses are connected to \accountNumber{} accounts and on average we had
 \avarageAccount{} addresses per person.
-The distribution of the number of wallets per account is represented in
-Figure~\ref{fig:numwall}. We considered only accounts with at most 28 related
+The distribution of the number of wallets per account is represented
+in~\autoref{fig:numwall}. We considered only accounts with at most 28 related
 wallets by setting a maximum limit on the number of
 wallets to spare time.
 Therefore if a wallet had more than 29 wallets we could not assert whether

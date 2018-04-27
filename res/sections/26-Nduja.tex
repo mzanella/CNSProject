@@ -6,7 +6,7 @@
 \section{Nduja} \label{nduja}
 \subsection{High level architecture}
 Nduja was developed in Python\footnote{It should be used with Python3.5+} and it
-is composed by four main modules, represented in Figure\ref{fig:architecture}:
+is composed by four main modules, represented in \autoref{fig:architecture}:
 \begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
 \item \walletcollector{} is a set of classes whose aim is to retrieve
 addresses of different cryptocurrencies. It provides a different class for each
@@ -39,13 +39,13 @@ In order to maximize the number of possible results in repositories the module
 \textbf{donation} or \textbf{contribution} and in which there is a set of
 characters that matches the provided regular expressions defined for the
 different address formats. This has been implemented using two different APIs:
-Github Search API \footnote{\url{https://developer.github.com/v3/search/}} and
-Searchcode API \footnote{\url{https://searchcode.com/api/}}.
+Github Search API\footnote{\url{https://developer.github.com/v3/search/}} and
+Searchcode API\footnote{\url{https://searchcode.com/api/}}.
 In addition to the keywords searched in Github, in Twitter we searched also for
 \textit{hashtags} such as \textbf{\#GiveAway} and
 hashtags correlated to specific cryptocurrency (e.g. \#BTCGiveAway). This has
-been done using Twitter API
-\footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}.
+been done using Twitter
+API\footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}.
 However, it has a strong limitation: we are only able to retrieve tweets that
 were published at most a week before the search. This limitation is imposed
 because we have not paid for a premium account. In fact our research must be

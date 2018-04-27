@@ -7,18 +7,18 @@ signatures to prevent the repudiation of a transaction, without a third
 party check~\cite{bib:anonAnalysis}.
 To achieve this, it was designed a peer-to-peer payment system,
 in which each peer maintains a copy of the complete transaction
-history~\cite{bib:fistful}. 
-In bitcoin and its derivatives a transaction is a move of value 
+history~\cite{bib:fistful}.
+In bitcoin and its derivatives a transaction is a move of value
 from transaction inputs to transaction outputs.
 These inputs come from previous unspent transaction outputs (UTXO).
 UTXOs can be redeemed (i.e. spent) if a user can satisfy the locking
 script contained in the transaction output, also known as \emph{encumbrance}.
 Usually the encumbrance locks the output to a specific bitcoin address,
 allowing the transfer of certain amount to the address' owner.
-Transactions can have multiple inputs and multiple 
-outputs~\cite{bib:bitcoin:mastering}. 
+Transactions can have multiple inputs and multiple
+outputs~\cite{bib:bitcoin:mastering}.
 To abstract from this low-level view we could say that the bitcoin
-address $A$ sends a specific amount of bitcoins to address $B$, 
+address $A$ sends a specific amount of bitcoins to address $B$,
 if there is a transaction output that can be redeemed from $A$ that
 is input of a transaction output, that can be redeemed by $B$.
 Fortunately, all APIs used throughout our work already provide this
@@ -33,7 +33,7 @@ of leading zeros. Since this operation is
 computationally difficult the successful generation of a block is well
 rewarded.~\cite{bib:satoshi}. If one of the miners succeeds it broadcasts the
 block to the network. The remaining nodes check if the transactions of the
-block are valid and whether they were already spent or not. 
+block are valid and whether they were already spent or not.
 
 One of the key factors of the success of the blockchain technology
 is the prevention of double spending problem without relying on a third party,
@@ -43,8 +43,9 @@ transactions~\cite{bib:bitcoinbeyond}.
 The bitcoin system, also, preserves users' personal privacy, giving them some
 sort of pseudo-anonymity. In this system every user owns at least one wallet,
 that is associated with a private key and a public one, also known as address.
-The latter are 26-35 alphanumeric characters~\cite{bib:bitcoinwiki:address}
-\footnote{We do not consider addresses in \texttt{Bech32} format. Their use is
+The latter are 26-35 alphanumeric
+characters~\cite{bib:bitcoinwiki:address}\footnote{We do not consider addresses
+in \texttt{Bech32} format. Their use is
 discouraged until more support will be available~\cite{bib:bitcoinwiki:bech32}}
 long and are indispensable in order to be able to exchange Bitcoins.
 In fact to transfer Bitcoin to another person you have to know her
@@ -53,7 +54,7 @@ the keys. It is as well possible to send money to non-existent addresses: when
 someone will create a new wallet with that address she could redeem
 them. Each user could generate more wallets, indeed it is recommended
 to generate a new key pair for each new transaction to better preserve
-the anonymity~\cite{bib:satoshi}. 
+the anonymity~\cite{bib:satoshi}.
 In order to use a certain address the owner of
 a wallet must conserve carefully the private key associated with it, in fact
 if it is lost, there is no possibility to recover it~\cite{bib:respCrypto}.
@@ -61,7 +62,7 @@ if it is lost, there is no possibility to recover it~\cite{bib:respCrypto}.
 
 \subsection{Altcoins}
 After the success of Bitcoin other digital currencies took place.
-All cryptocurrencies different from Bitcoin are known as 
+All cryptocurrencies different from Bitcoin are known as
 \emph{altcoins} (Alternative Coins)~\cite{bib:bitcoinbeyond}.
 One of the most famous is
 \textbf{Ethereum}. The peculiar characteristic of this cryptocurrency is
