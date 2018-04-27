@@ -71,16 +71,15 @@
 %~ SELECT count(*) FROM Account WHERE host LIKE 'bitbucket.org'
 \newcommand{\accountBitbucket}{1}
 
-
 \section{Results} \label{results}
 After we implemented and tested \texttt{Nduja} we ran it. The first step of the
 algorithm gave us \startingNumberAllWallets{} addresses,
 \startingNumberWalletsNotService{} addresses that probably are not services,
 but only \startingNumberWalletsAtLeastOneTransaction{} of them we were able to
 attest that they had at least one transaction. We found out \startingBTC{}
-Bitcoin addresses, \startingLTC{} Litecoin addresses, \startingDOGE{}
-addresses, \startingETH{} addresses and finally \startingXMR{} Monero
-addresses. This is depicted in~\autoref{fig:numberaccountcurrency}.
+Bitcoin addresses, \startingLTC{} Litecoin addresses, \startingDOGE{} Dogecoin
+addresses, \startingETH{} Ethereum addresses and finally \startingXMR{} Monero
+addresses. These results are depicted in~\autoref{fig:numberaccountcurrency}.
 
 
 \begin{figure*}
@@ -108,9 +107,11 @@ for DOGE and LTC}
 \caption{Results of our study}
 \end{figure*}
 As we expected the currency on which, potentially, we could retrieve more data
-is still Bitcoin. The number of Monero wallets found is \startingXMR{} and it
-could be so low even because it is an altcoin not so used and it was born in
-order to preserve users privacy, so people could be more aware to advertise it.
+is still Bitcoin. The number of Monero wallets found is \startingXMR{}. 
+There are several possible explanations for this low finding. On the one
+hand Monero has a smaller userbase than the other examined altcoins. On
+the other hand it was born to preserve users' privacy, so people could be more
+aware to advertise it.
 From those wallets \accountGithub{} came by searching Github, \accountTwitter{}
 from Twitter. Exploiting Github search we found other \accountBitcointalk{}
 accounts that are related to \url{bitcointalk.org} forum, because one of the
@@ -122,12 +123,12 @@ After that we ran the clustering procedure \emph{only} on Litecoin and Dogecoin
 addresses. We excluded Bitcoin wallets due to time constraints.
 For further details we
 refer to~\autoref{sec:issues}. Ethereum and Monero were not considered
-because the first does not allow multiple-input transactions, so it is not
+because the former does not allow multiple-input transactions, so it is not
 possible to cluster wallets as for the other, instead the latter has private
 transactions, so it is not possible to analyze its transaction history.
 After the clustering, we increase the number of addresses discovered to
-\clusteringNumberAllWallets{}, with \clusteringNumberWalletsNotService{}
-wallets, without considering known services.
+\clusteringNumberAllWallets{}, from which \clusteringNumberWalletsNotService{}
+are not well-known services.
 In~\autoref{fig:dogeltcclustered} is depicted the increase of the number of
 wallets found.
 Addresses are connected to \accountNumber{} accounts and on average we had
