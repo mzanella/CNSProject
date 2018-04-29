@@ -5,32 +5,59 @@
 
 \section{Nduja} \label{nduja}
 \subsection{High level architecture}
-Nduja was developed in Python\footnote{It should be used with Python3.5+} and it
-is composed by four main modules, represented in \autoref{fig:architecture}:
-\begin{enumerate*}[label=\roman*),itemjoin={,\quad}]
-\item \walletcollector{} is a set of classes whose aim is to retrieve
-addresses of different cryptocurrencies. It provides a different class for each
-different source used, following the exact same interface
-\item \userinforetriever{} is a set of classes that, based on which
-site a wallet is discovered, retrieve some information (e.g. name, email,
-personal website) related to the owner of that wallet
-\item \addresschecker{} checks whether the recognized addresses are valid and if
-they are involved at least in one transaction or not. For certain
-altcoins it is not possible to perform this validation accurately, e.g.
-Monero has private transactions, so it is not possible to find out that
-information
-\item \graph{} is the module responsible for analyzing the transaction graph
-in order to retrieve the clusters.
-%for create graph with which is
-% possible to correlate addresses and plot graphs.
-\end{enumerate*}
 
-\begin{figure}
-\centering
-\includegraphics[width=\columnwidth]{db}
-\caption{Nduja high level architecture}
-\label{fig:architecture}
-\end{figure}
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{architecture.pdf}
+	\caption{Nduja high level architecture}
+	\label{fig:architecture}
+\end{figure*}
+
+
+
+\autoref{fig:architecture} shows the architecture of Nduja and its algorithm.
+% The dashed boxes represent the main modules of Nduja, the rounded boxes the
+% outputs and the numbered arrows the steps of the algorithm.
+Before starting the research (0) we filled the database with the addresses of
+well-known services, also known as \emph{tagged
+	addresses}\footnote{\url{https://blockchain.info/tags}}.
+
+The reason to perform this preparatory action 
+is twofold: it permits to decrease dramatically the number of
+clustered addresses and further tagged addresses are not so
+interesting for our purposes because they already voluntarily disclose their
+identity.
+Then (1) the file \texttt{format.json} is passed to the \verb|wallet_collector|
+module. This file contains all the information to build the queries: for each
+currency it contains the name (e.g. Bitcoin), the symbol (e.g. BTC) and a
+regular expression that is used to collect the wallets inside the texts.
+The \verb|wallet_collector| module (2) builds the queries, performs the
+researches and find a list of potential matches. To make Nduja extensible it
+provides a different class for each different source used, following the same
+interface. Indeed it is very easy to add a new source, thanks to the Template
+Pattern.
+The list of potential matches is filtered (3) to remove known addresses (taken
+from the database) and false matches, that is, addresses that matches the given
+regular expressions but are not valid addresses. To perform this latter check
+we implemented the module \verb|address_checkers|.
+Besides performing validity checks it adds to the list the status, i.e. a
+code that is 1 if the wallet performed at least one transaction otherwise 0.
+Obviously, after this check each account with 0 associated wallets was simply
+removed from the list.
+Subsequently (5) this list is inserted in the database.
+To completely de-anonymize a person we need to gather personal information
+about her. Therefore (6) we used the module \verb|user_info_retriever| that
+reads the username and host from the database and searches for its personal
+information, collecting personal websites, email and name.
+Before proceeding with the clustering we spent a good deal of time (7 and 8)
+cleaning the database manually: we focused in searching accounts that were
+correlated to a a suspiciously high number of wallet correlated or files that
+contained a really large set of addresses. By doing this we kept only about 45\% of the original addresses.
+Lastly, (9) we proceed with the clustering procedure exploiting the \verb|graph|
+module, that is responsible of analyzing the transactions of the wallets 
+inside the database and to find potential overlapping between people in the
+database.
 
 \subsection{Queries}
 \label{sec:queries}
