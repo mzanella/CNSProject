@@ -4,16 +4,17 @@ false positives, especially Ethereum addresses. This is due, in particular, to
 the fact that Ethereum addresses are simply 20 bytes hexadecimal numbers that
 could appear also without the \texttt{0x} prefix. Another problem is that smart
 contract addresses and Ethereum wallet public keys have the same format. To
-filter out as much false result as possible we started the search phase
-inserting all well known addresses into the database, flagging them. In that way
+filter out as much false positives as possible we started the search phase
+inserting all well-known addresses into the database, flagging them. In that way
 we avoided to erroneously mark someone as owner of that wallets, even if she is
 correlated with it. The majority of false positive has been skimmed by
 \texttt{address\_checker} module. Moreover, we eliminated all addresses coming
 from \texttt{.ipynb} and image files: they were all false matches that
 followed the Ethereum addresses format. Lastly, we spent a good deal of time
-cleaning the database manually: we focused in searching account that are
-correlated to a a too high number of wallet correlated or files that contained
-a really large set of addresses. Finally, before starting the clustering phase,
+cleaning the database manually: we focused in searching accounts that were
+bound to a too high number of wallets and files that contained
+a really large set of addresses. 
+Finally, before starting the clustering phase,
 we kept only about the 45\% of the original addresses.
 Another issue is the fact that we had at our dispose addresses
 of well-known services only for Bitcoin and not for the other altcoins.
@@ -28,9 +29,9 @@ blockchains, but their official clients (derived from \texttt{bitcoind}) do not
 construct the same mappings as the Web services we used. We tried two
 approaches: on the one side we tried to build the mapping wallet-transactions
 and on the other side we exploited the possibility to import so called
-``watch-only'' addresses making us able to access directly all the transaction
-of addresses imported. The first approach was abandoned because it
-required too much time and the data were too huge. The latter because of the
+``watch-only'' addresses in the clients, making us able to access directly all
+the transaction of addresses imported. The first approach was abandoned because
+it required too much time and the data were too huge. The latter because of the
 continuous rescanning of the blockchain each time new wallets were imported.
 That obliged us to restart the client multiple times during a single run and
 this led to a client misbehavior. Also the rescanning phase is a really
