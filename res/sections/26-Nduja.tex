@@ -8,37 +8,35 @@
 \subsection{Algorithm}
 \texttt{Nduja} algorithm follows a sequence of 3 steps:
 \subsubsection*{Data retrieving} Firstly all possible wallets are collected
-and from multiple sources and they are stored in a database along with the
-information of where thay were retrieved (i.e. reference to the account of the
+from multiple sources and they are stored in a database along with the
+information of where that were retrieved (i.e. reference to the account of the
 website in which they are published). In particular in this paper the search is
 performed using Github, Twitter and Searchcode API and we refer to
-\textit{Account} when we talk about a Twitter, Github
-or some other repositories host profile, instead with the word \textit{Address}
-or \textit{Wallet} we mean the public key of a wallet of a certain
+\textit{Account} when we talk about a Twitter, Github or some other
+repositories host profile, instead with the word \textit{Address} or
+\textit{Wallet} we mean the public key of a wallet of a certain
 cryptocurrency.
 
 \subsubsection*{Account data retrieving} The second step involves the
-retrieving of all possible data related to accounts inserted into the database
-in the previous step. This is done by using related APIs
-(e.g. Twitter API, Github Search API, Bitbucket API, etc.) to fetch the public
-information of the accounts and also by searching for emails and websites in
-the same resources where we found in the first place the addresses.
+retrieving of all possible data related to accounts found with the previous
+step. This is done by using related APIs (e.g. Twitter API, Github Search API,
+Bitbucket API, etc.) to fetch the public information of the accounts and also
+by searching for emails and websites in the same resources where we found in
+the first place the addresses.
 
 \subsubsection*{Clustering addresses} The last step consists in grouping
-wallets that could be associated with the same person. In order to do so we
-take advantage of
+wallets that could be associated with the same person: all wallets that are
+involved as input of the same transaction can be connected to a single
+entity,so we create a ``cluster'' of addresses. In our work to do so we
+took advantage of
 Blockchain.info API\footnote{\url{https://blockchain.info/api}},
 Chain.so API\footnote{\url{https://chain.so/api}} and
 Etherscan API\footnote{\url{https://etherscan.io/apis}}. These APIs allow
 developers to query Bitcoin's, Ethereum's, Litecoin's and Dogecoin's
 blockchains without having a local copy of them, that can count
-hundreds of gigabytes~\cite{bib:bitinfochart}. We used the APIs to find out all
-the transactions regarding a single wallet in our database.
-Afterward we looked for transactions with multiple inputs that
-involve wallets that we connected to a certain person to create a
-``cluster'' of wallet of the same user.
+hundreds of gigabytes~\cite{bib:bitinfochart}.
 
-\subsection{High level architecture}
+\subsection{Architecture}
 
 
 \begin{figure*}
@@ -50,14 +48,14 @@ involve wallets that we connected to a certain person to create a
 
 
 
-\autoref{fig:architecture} shows the architecture of Nduja and its algorithm.
-This system was implemented using Python\footnote{In particular it could be ran using Python3+ and was tested only under Linux environment}
+\autoref{fig:architecture} depicts the architecture of Nduja and its algorithm.
+This system was implemented using Python\footnote{In particular it could be ran
+using Python3+ and was tested only under Linux environment}
 % The dashed boxes represent the main modules of Nduja, the rounded boxes the
 % outputs and the numbered arrows the steps of the algorithm.
 Before starting the research (0) we filled the database with the addresses of
-well-known services, also known as \emph{tagged
-	addresses}\footnote{\url{https://blockchain.info/tags}}.
-
+well-known services, also known as
+\emph{tagged addresses}\footnote{\url{https://blockchain.info/tags}}.
 The reason to perform this preparatory action 
 is twofold: it permits to decrease dramatically the number of
 clustered addresses and further tagged addresses are not so
@@ -88,7 +86,8 @@ information, collecting personal websites, email and name.
 Before proceeding with the clustering we spent a good deal of time (7 and 8)
 cleaning the database manually: we focused in searching accounts that were
 correlated to a a suspiciously high number of wallet correlated or files that
-contained a really large set of addresses. By doing this we kept only about 45\% of the original addresses.
+contained a really large set of addresses. By doing this we kept only about 45\%
+of the original addresses.
 Lastly, (9) we proceed with the clustering procedure exploiting the \verb|graph|
 module, that is responsible of analyzing the transactions of the wallets 
 inside the database and to find potential overlapping between people in the
@@ -96,7 +95,7 @@ database.
 
 \subsection{Queries}
 \label{sec:queries}
-In order to maximize the number of possible results in repositories the module
+To maximize the number of possible results in repositories the module
 \walletcollector{} searches for files that contain words such as
 \textbf{donation} or \textbf{contribution} and in which there is a set of
 characters that matches the provided regular expressions defined for the
@@ -120,13 +119,10 @@ addresses.
 
 \subsection{Database}
 All data retrieved is stored into a
-SQLite\footnote{\url{https://www.sqlite.org/}} database. Addresses are stored
-with the indication that if they are wallets retrieved from the websites we
-search, if they are inferred or they are ``tagged'' addresses. These are
-wallets that are known \emph{a priori}, i.e. that are used by well-known
-services, such as mixing services or betting games as
-\textit{SatoshiDICE}\footnote{\url{satoshidice.com}}.
-The reason to exclude this kind of addresses is twofold: the former is that we
-do not want that the number of addresses in the clustering phase explodes for
-both time and storage constraints and the latter is that these
-addresses are already ``public'', so they are useless for the sake of our study.
+SQLite\footnote{\url{https://www.sqlite.org/}} database. The information stored
+for a user her name, websites and emails, along with the response of the request
+with which the information is carried out. Addresses are recorded alongside the
+URL in which the address were found. Moreover each address is flagged with a
+field that could be: \texttt{0} if the address is not used yet, \texttt{1}
+whether the address is used at least for one transaction or \texttt{-1} when it
+is tagged address.
