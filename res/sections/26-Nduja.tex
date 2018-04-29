@@ -36,7 +36,7 @@ The \verb|wallet_collector| module (2) builds the queries, performs the
 researches and find a list of potential matches. To make Nduja extensible it
 provides a different class for each different source used, following the same
 interface. Indeed it is very easy to add a new source, thanks to the Template
-Pattern.
+Method Design Pattern.
 The list of potential matches is filtered (3) to remove known addresses (taken
 from the database) and false matches, that is, addresses that matches the given
 regular expressions but are not valid addresses. To perform this latter check
