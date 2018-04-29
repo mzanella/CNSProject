@@ -1,20 +1,20 @@
 \section{Issues} \label{sec:issues}
 During the collecting phase we inserted into the database a large number of
 false positives, especially Ethereum addresses. This is due, in particular, to
-the fact that Ethereum addresses are simply 20 bytes hexadecimal number that
+the fact that Ethereum addresses are simply 20 bytes hexadecimal numbers that
 could appear also without the \texttt{0x} prefix. Another problem is that smart
 contract addresses and Ethereum wallet public keys have the same format. To
-filter out the as much false result as possible we start the search phase
-inserting all well known addresses into the database flagging them. In that way
-we avoid to erroneously mark someone as owner of that wallet, even if she is
+filter out as much false result as possible we started the search phase
+inserting all well known addresses into the database, flagging them. In that way
+we avoided to erroneously mark someone as owner of that wallets, even if she is
 correlated with it. The majority of false positive has been skimmed by
 \texttt{address\_checker} module. Moreover, we eliminated all addresses coming
 from \texttt{.ipynb} and image files: they were all false matches that
-respected Ethereum addresses format. Lastly, we spent a good deal of time
-cleaning the database manually: we focused in searching account that had a too
-high number of wallet correlated or files that contained a really large set of
-addresses. Finally, before starting the clustering phase, we kept only about
-the 45\% of the original addresses.
+followed the Ethereum addresses format. Lastly, we spent a good deal of time
+cleaning the database manually: we focused in searching account that are
+correlated to a a too high number of wallet correlated or files that contained
+a really large set of addresses. Finally, before starting the clustering phase,
+we kept only about the 45\% of the original addresses.
 Another issue is the fact that we had at our dispose addresses
 of well-known services only for Bitcoin and not for the other altcoins.
 We clustered only Litecoin and Dogecoin addresses for the following reasons.
