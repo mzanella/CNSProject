@@ -39,6 +39,15 @@ rules in order to preserve the anonymity of their wallets by associating them
 with their personal data, without knowing that they risk to compromise even
 other wallets owned by them.
 
+Throughout this paper we use the terms \emph{Account} to refer to a profile
+on Twitter, Github or some other repositories,
+\emph{Wallet}, \emph{Address} or \emph{public key} to refer 
+to the unique identifier of a wallet, that is in case of Bitcoin and its
+derivatives the base58-encoding of the hash of the public
+key~\cite{bib:bitcoin:mastering} and in case of
+Ethereum it corresponds to the last 160 bit of the Keccak-256 hash of the
+wallet public key encoded in hexadecimal 
+format~\cite{bib:ethereum:yellow:paper}.
 
 \subsection{Paper structure}
 This paper is organized as follows:~\autoref{background} gives a brief
