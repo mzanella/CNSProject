@@ -23,7 +23,7 @@ mapping wallet-transactions and on the other we exploited the possibility to
 import so called ``watch-only'' addresses, making us able to access directly
 all the transaction of addresses imported.
 The first approach was abandoned because it required too much time and data
-were too huge. The latter because it requires continuous rescanning of the
+were too huge. The latter because it required continuous rescanning of the
 blockchain each time new wallets were imported. That obliged us to restart the
 client multiple times during a single run and this led to a client misbehavior.
 Furthermore the rescanning phase is a really time consuming task.
@@ -31,5 +31,5 @@ Definitely, the only feasible approach with our means was to use APIs.
 Another problem we encountered is about run time analysis of our
 system. Before implementing it, we planned to measure the time needed to
 retrieve preliminary information (data retrieving phase), but definitely it was
-not an significant metric: in fact due to rate limits and exception given by
+not an significant metric: in fact due to rate limits and exceptions given by
 disconnection to Internet our implementation requires lots of pauses.
