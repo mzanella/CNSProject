@@ -7,14 +7,14 @@
 
 \subsection{Algorithm}
 \texttt{Nduja} algorithm follows a sequence of 3 steps:
-\subsubsection*{Data retrieving} Firstly all possible wallets are collected
-from multiple sources and they are stored in a database along with the
-information of where that were retrieved (i.e. reference to the account of the
+\subsubsection*{Data retrieving} Firstly, all possible wallets are collected
+from multiple sources and stored in a database along with the
+information of where they were retrieved (i.e. reference to the account of the
 website in which they are published). In particular in this paper the search is
-performed using Github, Twitter and Searchcode API and we refer to
-\textit{Account} when we talk about a profile on Twitter or Github or some other
-repositories, instead with the word \textit{Address} or \textit{Wallet} we mean
-the public key of a wallet of a certain cryptocurrency.
+performed using Github, Twitter and Searchcode API. In the following we use the
+terms Account and Address (or Wallet) when we refer to a profile on Twitter,
+Github or some other repositories and the public key of a wallet of a certain
+cryptocurrency, respectively
 
 \subsubsection*{Account data retrieving} The second step involves the
 retrieving of all possible data related to accounts found with the previous
@@ -26,7 +26,7 @@ the first place the addresses.
 \subsubsection*{Clustering addresses} The last step consists in grouping
 wallets that could be associated with the same person: all wallets that are
 involved as input of the same transaction can be connected to a single
-entity,so we create a ``cluster'' of addresses. In our work to do so we
+entity, so we create a ``cluster'' of addresses. In our work to do so we
 took advantage of
 Blockchain.info API\footnote{\url{https://blockchain.info/api}} and
 Chain.so API\footnote{\url{https://chain.so/api}}. These APIs allow
@@ -47,8 +47,9 @@ hundreds of gigabytes~\cite{bib:bitinfochart}.
 
 
 \autoref{fig:architecture} depicts the architecture of Nduja and its algorithm.
-This system was implemented using Python\footnote{In particular it could be ran
-using Python3+ and was tested only under Linux environment}
+This system was implemented using Python\footnote{
+	In particular we implemented and tested our system only with versions
+	3.5 and 3.6 under Linux environment.}
 % The dashed boxes represent the main modules of Nduja, the rounded boxes the
 % outputs and the numbered arrows the steps of the algorithm.
 Before starting the research (0) we filled the database with the addresses of
@@ -74,13 +75,13 @@ regular expressions but are not valid addresses. To perform this latter check
 we implemented the module \verb|address_checkers|.
 Besides performing validity checks it adds to the list the status, i.e. a
 code that is 1 if the wallet performed at least one transaction otherwise 0.
-Obviously, after this check each account with 0 associated wallets was simply
+Obviously, after this check the accounts without associated wallets were simply
 removed from the list.
 Subsequently (5) this list is inserted in the database.
 To completely de-anonymize a person we need to gather personal information
 about her. Therefore (6) we used the module \verb|user_info_retriever| that
-reads the username and host from the database and searches for its personal
-information, collecting personal websites, email and name.
+reads the username and the source from the database and searches for its
+personal information, collecting personal websites, email and name.
 Before proceeding with the clustering we spent a good deal of time (7 and 8)
 cleaning the database manually: we focused in searching accounts that were
 correlated to a a suspiciously high number of wallet correlated or files that
