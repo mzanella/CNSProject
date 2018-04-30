@@ -4,9 +4,8 @@ false positives, especially Ethereum addresses. This is due to the fact that
 Ethereum addresses are simply 20 bytes hexadecimal number that could appear
 also without the \texttt{0x} prefix. Another problem is that smart contract
 addresses and Ethereum wallet public keys have the same format. We filtered out
-the majority of false positives with \texttt{address\_checker} module. We spent
-a good deal of time cleaning the database manually. Finally, we kept only about
-the 45\% of the original addresses.
+the majority of them with \texttt{address\_checker} module and manually as
+described in Section~\ref{architecture}.
 Another issue is the fact that we had at our dispose addresses
 of well-known services only for Bitcoin and not for the other altcoins.
 We clustered only Litecoin and Dogecoin addresses for the following reasons.
@@ -14,16 +13,23 @@ First of all the clustering phase using Web APIs is extremely slow, because of
 their rate limits: in fact Dogecoin clustering took about one week, Litecoin
 five days.
 We desisted from doing the same for Bitcoin because the starting number of
-wallets for this currency was even higher and its blockchain is even bigger. We
-also tried to perform this search locally downloading Dogecoin and Litecoin
-blockchains, but their official clients (derived from \texttt{bitcoind}) do not
-construct the same mappings as the Web services we used. We tried two
-approaches: on the one side we tried to build the mapping wallet-transactions
-and on the other side we exploited the possibility to import so called
-``watch-only'' addresses making us able to access directly all the transaction
-of addresses imported. The first approach was abandoned because it
-required too much time and the data were too huge. The latter because of the
-continuous rescanning of the blockchain each time new wallets were imported.
-That obliged us to restart the client multiple times during a single run and
-this led to a client misbehavior. Also the rescanning phase is a really
-time consuming task.
+wallets for this currency was even higher and its blockchain is much more
+bigger. To solve this problem we tried another method, avoiding API calls: we
+implemented this search locally, downloading Dogecoin and Litecoin blockchains.
+In that case the problem was that their official clients (derived from
+\texttt{bitcoind}) do not construct the same mappings as the Web services we
+used. After we experienced two approaches: on the one side we tried to build the
+mapping wallet-transactions and on the other we exploited the possibility to
+import so called ``watch-only'' addresses, making us able to access directly
+all the transaction of addresses imported.
+The first approach was abandoned because it required too much time and data
+were too huge. The latter because it required continuous rescanning of the
+blockchain each time new wallets were imported. That obliged us to restart the
+client multiple times during a single run and this led to a client misbehavior.
+Furthermore the rescanning phase is a really time consuming task.
+Definitely, the only feasible approach with our means was to use APIs.
+Another problem we encountered is about run time analysis of our
+system. Before implementing it, we planned to measure the time needed to
+retrieve preliminary information (data retrieving phase), but definitely it was
+not an significant metric: in fact due to rate limits and exceptions given by
+disconnection to Internet our implementation requires lots of pauses.
