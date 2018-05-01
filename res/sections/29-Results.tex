@@ -156,3 +156,35 @@ at least another one: this means that one of their addresses are used together
 as input in the same Dogecoin or Litecoin transaction. During the analysis of
 those relations we found out that some of them are ``spurious'': the wallets
 seems to belong to different people.
+
+Afterward we analyzed the number of hashtags that were
+correlated to the collected addresses.
+In most cases the tweets that
+contain the public keys are not the same that contain the hashtags, but rather
+they are only replies.
+So, we retrieved for each reply tweet in the database the hashtags of the
+original tweet.
+In~\autoref{fig:hashtags} the 20 most used hashtags are reported.
+This finding can be exploited to further improve future searches by targeting
+them to the most popular keywords.
+This analysis was done on 30\textsuperscript{th} April 2018. In the
+meantime 215 of the 1079 tweets collected in the data retrieving phase were
+deleted. Although
+this result could be slightly different if the study was performed immediately
+after the search we believe that is still a valid. 
+We explain the fact
+that many tweets were deleted and their authors were suspended because of
+the suspicious nature of these tweets: for example, some of 
+these accounts use misleading names to gain
+money\footnote{e.g. \url{https://twitter.com/ButerinVilatik/} exploits a
+misspelling of the name of creator of Ethereum Vitalik Buterin}.
+An important finding of this analysis is that hashtags are written with
+different capitalization, so a simple improvement of out system could be to
+contemplate all possible uppercase-lowercase combination.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{hashtags_hist}
+\caption{Top 20 most used hashtags}
+\label{fig:hashtags}
+\end{figure}
