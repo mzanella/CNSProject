@@ -8,24 +8,24 @@ party check~\cite{bib:anonAnalysis}.
 To achieve this, it was designed a peer-to-peer payment system,
 in which each peer maintains a copy of the complete transaction
 history~\cite{bib:fistful}.
-In bitcoin and its derivatives a transaction is a move of value
+In Bitcoin and its derivatives a transaction is a move of value
 from transaction inputs to transaction outputs.
 These inputs come from previous unspent transaction outputs (UTXO).
 UTXOs can be redeemed (i.e. spent) if a user can satisfy the locking
 script contained in the transaction output, also known as \emph{encumbrance}.
-Usually the encumbrance locks the output to a specific bitcoin address,
+Usually the encumbrance locks the output to a specific Bitcoin address,
 allowing the transfer of certain amount to the address' owner.
 Transactions can have multiple inputs and multiple
 outputs~\cite{bib:bitcoin:mastering}.
-To abstract from this low-level view we could say that the bitcoin
-address $A$ sends a specific amount of bitcoins to address $B$,
+To abstract from this low-level view we could say that the Bitcoin
+address $A$ sends a specific amount of Bitcoins to address $B$,
 if there is a transaction output that can be redeemed from $A$ that
 is input of a transaction output, that can be redeemed by $B$.
 Fortunately, all APIs used throughout our work already provide this
 abstraction.
 
 Once a transaction is built and signed by the
-sender, it is broadcasted. Some nodes of the bitcoin network, called
+sender, it is broadcasted. Some nodes of the Bitcoin network, called
 \textit{miners}, collect transactions into blocks and try to find a difficult
 proof-of-work for the block~\cite{bib:hashcash, bib:pricing}, i.e. they
 need to find a nonce such that the hash of the block contains a certain number
@@ -40,7 +40,7 @@ is the prevention of double spending problem without relying on a third party,
 e.g. a bank. This is achieved thanks to transparent
 transactions~\cite{bib:bitcoinbeyond}.
 
-The bitcoin system, also, preserves users' personal privacy, giving them some
+The Bitcoin system, also, preserves users' personal privacy, giving them some
 sort of pseudo-anonymity. In this system every user owns at least one wallet,
 that is associated with a private key and a public one, also known as address.
 The latter are 26-35 alphanumeric
@@ -81,7 +81,7 @@ The first one is a cryptocurrency born in 2011 with the aim to improve
 Bitcoin and thought to be ``lighter'' to create blocks.
 They changed the proof of work algorithm to permit the
 generation of a new block every 2.5 minutes rather than 10 minutes as in
-bitcoin~\cite{bib:litecoin:wiki}.
+Bitcoin~\cite{bib:litecoin:wiki}.
 Litecoin wallets start with \texttt{L} or \texttt{M} followed by an
 alphanumeric string whose length is between 24 and 36 characters.
 The latter is an altcoin derived from Litecoin, born as a joke in 2013
