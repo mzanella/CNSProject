@@ -28,8 +28,8 @@ blockchain each time new wallets were imported. That obliged us to restart the
 client multiple times during a single run and this led to a client misbehavior.
 Furthermore the rescanning phase is a really time consuming task.
 Definitely, the only feasible approach with our means was to use APIs.
-Another problem we encountered is about run time analysis of our
-system. Before implementing it, we planned to measure the time needed to
-retrieve preliminary information (data retrieving phase), but definitely it was
-not an significant metric: in fact due to rate limits and exceptions given by
-disconnection to Internet our implementation requires lots of pauses.
+Finally, we did not intentionally report a run time analysis of our
+system. We argue that it would not be meaningful because the remote requests
+introduce big latencies, exceptions can occur and must be dealt by retrying 
+the requests and lastly the rate limits impose to the implementation to pause
+until the renovation time.
