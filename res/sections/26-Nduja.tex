@@ -5,6 +5,13 @@
 
 \section{Nduja} \label{nduja}
 
+\begin{figure*}
+    \centering
+    \includegraphics[width=\textwidth]{architecture.pdf}
+    \caption{Nduja high level architecture}
+    \label{fig:architecture}
+\end{figure*}
+
 \subsection{Algorithm}
 \texttt{Nduja} algorithm follows a sequence of 3 steps:
 \subsubsection*{Data retrieving} Firstly, all possible wallets are collected
@@ -32,17 +39,6 @@ blockchains without having a local copy of them, that can count
 hundreds of gigabytes~\cite{bib:bitinfochart}.
 
 \subsection{Architecture} \label{architecture}
-
-
-\begin{figure*}
-	\centering
-	\includegraphics[width=\textwidth]{architecture.pdf}
-	\caption{Nduja high level architecture}
-	\label{fig:architecture}
-\end{figure*}
-
-
-
 \autoref{fig:architecture} depicts the architecture of Nduja and its algorithm.
 This system was implemented using Python\footnote{
 	In particular we implemented and tested our system only with versions
@@ -112,6 +108,31 @@ of data by performing those queries weekly:
 the information before the first search is lost without a premium account, but,
 following this idea it is possible to collect incrementally all the future
 addresses.
+
+\begin{figure*}[ht!]
+\centering
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[width=.9\textwidth, height=3.5cm]{number_account_currency}
+\caption{Number of wallets retrieved for each currency}
+\label{fig:numberaccountcurrency}
+\end{subfigure}
+~
+\begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[width=\textwidth, height=3.5cm]{number_inferred_DOGE_LTC}
+\caption{Comparison between the number of wallets before and after clustering
+for DOGE and LTC}
+\label{fig:dogeltcclustered}
+\end{subfigure}
+~
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[width=.9\textwidth, height=3.5cm]{numwall}
+\caption{Distribution of the number of wallets per account}
+\label{fig:numwall}
+\end{subfigure}
+\caption{Results of our study}
+\end{figure*}
 
 \subsection{Database}
 All data retrieved is stored into a
