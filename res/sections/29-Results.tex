@@ -97,9 +97,9 @@ The altcoin that gave us the smaller set of results was Monero, with only
 \startingXMR{}. There are several possible explanations: on one hand Monero has
 a smaller userbase than the other examined currencies, on the other hand it was
 born to preserve users' privacy, so people could be more aware to advertise it.
-Wallets retrieved in this phase come from different sources, in particular:
-\accountGithub{} were retrieved by searching Github, \accountTwitter{}
-from Twitter. Exploiting Github search, we found other \accountBitcointalk{}
+The accounts retrieved in this phase come from different sources in particular
+\accountGithub{} from Github and \accountTwitter{} from Twitter.
+Exploiting Github search, we found other \accountBitcointalk{}
 accounts that are related to \url{bitcointalk.org} forum, because one
 of the repository listed them. Searchcode did not give us a serious improvement
 because we were able only to retrieve other 3 addresses (\accountGitlab{} from
@@ -112,13 +112,15 @@ For further details we refer to~\autoref{sec:issues}. Ethereum and Monero were
 not considered because the former does not allow multiple-input transactions,
 so it is not possible to cluster wallets as for the other, instead the latter
 has private transactions, so it is not possible to analyze its transaction
-history. After clustering, we increase the total number of addresses discovered
-to \clusteringNumberAllWallets{}, \clusteringNumberWalletsNotService{} of them
-are not well-known services.
-In~\autoref{fig:dogeltcclustered} is depicted the increase of the number of
+history.
+Thanks to clustering, we increased the total number of addresses
+discovered
+to \clusteringNumberAllWallets{} from which
+\clusteringNumberWalletsNotService{} are not tagged.
+\autoref{fig:dogeltcclustered} shows the increase of the number of
 wallets found.
-Addresses are connected to \accountNumber{} accounts and on average we had
-\avarageAccount{} addresses per person.
+Since we individuated~\accountNumber{} accounts the average number
+of wallets per account is~\avarageAccount{}.
 The distribution of the number of wallets per account is represented
 in~\autoref{fig:numwall}. We considered only accounts with at most 28 related
 wallets by setting a maximum limit on the number of
@@ -127,7 +129,7 @@ Therefore if a wallet had more than 29 wallets we could not assert whether
 the account had actually 29 addresses or more.
 We were able to bind \facebookRelatedAccounts{} and \linkedinRelatedAccount{}
 accounts to their Facebook and Linkedin contacts, respectively, and these two
-sets do not have intersection. The latter social network is particularly
+sets do not have intersections. The latter social network is particularly
 interesting because people are more likely to share sensitive data on this
 platform because of its aim.
 Finally, \accountRelated{} accounts in our database are strongly related with
