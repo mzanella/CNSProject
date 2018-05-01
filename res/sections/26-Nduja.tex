@@ -28,7 +28,7 @@ by searching for emails and websites in the same resources where we found in
 the first place the addresses.
 
 \subsubsection*{Clustering addresses} The last step consists in grouping
-wallets that could be associated with the same person: all wallets that are
+wallets that could be associated with the same person: all addresses that are
 involved as input of the same transaction can be connected to a single
 entity, so we create a ``cluster'' of addresses. In our work to do so we
 took advantage of
@@ -77,7 +77,7 @@ reads the username and the source from the database and searches for its
 personal information, collecting personal websites, email and name.
 Before proceeding with the clustering we spent a good deal of time (7 and 8)
 cleaning the database manually: we focused in searching accounts that were
-correlated to a a suspiciously high number of wallet correlated or files that
+correlated to a suspiciously high number of wallet correlated or files that
 contained a really large set of addresses. By doing this we kept only about 45\%
 of the original addresses.
 Lastly, (9) we proceed with the clustering procedure exploiting the \verb|graph|
@@ -137,9 +137,10 @@ for DOGE and LTC}
 \subsection{Database}
 All data retrieved is stored into a
 SQLite\footnote{\url{https://www.sqlite.org/}} database. The information stored
-for a user her name, websites and emails, along with the response of the request
+for a user are the name, websites and emails, along with the response of the
+request
 with which the information is carried out. Addresses are recorded alongside the
-URL in which the address were found. Moreover each address is flagged with a
+URL in which they were found. Moreover each address is flagged with a
 field that could be: \texttt{0} if the address is not used yet, \texttt{1}
 whether the address is used at least for one transaction or \texttt{-1} when it
 is tagged address.
