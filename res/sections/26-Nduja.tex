@@ -68,8 +68,8 @@ The list of potential matches is filtered (3) to remove known addresses (taken
 from the database) and false matches, that is, addresses that match the given
 regular expressions but are not valid. To perform this latter check
 we implemented the module \verb|address_checkers|.
-Besides performing validity checks it adds to the list the status, i.e. a
-code that is 1 if the wallet performed at least one transaction otherwise 0.
+Besides performing validity checks it adds to the list the status, as explained
+in \ref{sec:database}.
 Obviously, after this check the accounts without associated wallets were simply
 removed from the list.
 Subsequently (5) this list is inserted in the database.
@@ -136,13 +136,13 @@ the information before the first search is lost without a premium account, but,
 following this idea it is possible to collect incrementally all the future
 addresses.
 
-\subsection{Database}
-All data retrieved is stored into a
-SQLite\footnote{\url{https://www.sqlite.org/}} database. The information stored
-for a user are the name, websites and emails, along with the response of the
-request
-with which the information is carried out. Addresses are recorded alongside the
-URL in which they were found. Moreover each address is flagged with a
-field that could be: \texttt{0} if the address is not used yet, \texttt{1}
-whether the address is used at least for one transaction or \texttt{-1} when it
-is tagged address.
+\subsection{Database} \label{sec:database}
+All data retrieved is stored into a database. We chose to use
+SQLite\footnote{\url{https://www.sqlite.org/}}, a relational database,
+because of our familiarity with SQL, its integrity checks and the bindings
+with Python. The information stored for a user are the name, websites and
+emails, along with the response of the request with which the information is
+carried out. Addresses are recorded alongside the URL in which they were found.
+Moreover each address is flagged with a field that could be: \texttt{0} if the
+address is not used yet, \texttt{1} whether the address is used at least for
+one transaction or \texttt{-1} when it is tagged address.
