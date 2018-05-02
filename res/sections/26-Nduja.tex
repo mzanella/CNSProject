@@ -30,8 +30,8 @@ the first place the addresses.
 \subsubsection*{Clustering addresses} The last step consists in grouping
 wallets that could be associated with the same person: all addresses that are
 involved as input of the same transaction can be connected to a single
-entity, so we create a ``cluster'' of addresses. In our work to do so we
-took advantage of
+entity, thus forming a ``cluster'' of addresses. To group addresses
+into clusters we took advantage of
 Blockchain.info API\footnote{\url{https://blockchain.info/api}} and
 Chain.so API\footnote{\url{https://chain.so/api}}. These APIs allow
 developers to query Bitcoin's, Ethereum's, Litecoin's and Dogecoin's
@@ -65,8 +65,8 @@ provides a different class for each different source used, following the same
 interface. Indeed it is very easy to add a new source, thanks to the Template
 Method Design Pattern.
 The list of potential matches is filtered (3) to remove known addresses (taken
-from the database) and false matches, that is, addresses that matches the given
-regular expressions but are not valid addresses. To perform this latter check
+from the database) and false matches, that is, addresses that match the given
+regular expressions but are not valid. To perform this latter check
 we implemented the module \verb|address_checkers|.
 Besides performing validity checks it adds to the list the status, i.e. a
 code that is 1 if the wallet performed at least one transaction otherwise 0.
