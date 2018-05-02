@@ -86,31 +86,7 @@ module, that is responsible of analyzing the transactions of the wallets
 inside the database and to find potential overlapping between people in the
 database.
 
-\subsection{Queries}
-\label{sec:queries}
-To maximize the number of possible results in repositories the module
-\walletcollector{} searches for files that contain words such as
-\textbf{donation} or \textbf{contribution} and in which there is a set of
-characters that matches the provided regular expressions defined for the
-different address formats. This has been implemented using two different APIs:
-Github Search API\footnote{\url{https://developer.github.com/v3/search/}} and
-Searchcode API\footnote{\url{https://searchcode.com/api/}}.
-In addition to the keywords searched in Github, in Twitter we searched also for
-\textit{hashtags} such as \textbf{\#GiveAway} and
-hashtags correlated to specific cryptocurrency (e.g. \#BTCGiveAway). This has
-been done using Twitter
-API\footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}.
-However, it has a strong limitation: we are only able to retrieve tweets that
-were published at most a week before the search. This limitation is imposed
-because we have not paid for a premium account. In fact our research must be
-thought as a proof of concept.
-Although this limitation even with a free account one can collect a huge amount
-of data by performing those queries weekly:
-the information before the first search is lost without a premium account, but,
-following this idea it is possible to collect incrementally all the future
-addresses.
-
-\begin{figure*}[ht!]
+\begin{figure*}[h!]
 \centering
 \begin{subfigure}[t]{0.3\textwidth}
 \centering
@@ -134,6 +110,30 @@ for DOGE and LTC}
 \end{subfigure}
 \caption{Results of our study}
 \end{figure*}
+
+\subsection{Queries}
+\label{sec:queries}
+To maximize the number of possible results in repositories the module
+\walletcollector{} searches for files that contain words such as
+\textbf{donation} or \textbf{contribution} and in which there is a set of
+characters that matches the provided regular expressions defined for the
+different address formats. This has been implemented using two different APIs:
+Github Search API\footnote{\url{https://developer.github.com/v3/search/}} and
+Searchcode API\footnote{\url{https://searchcode.com/api/}}.
+In addition to the keywords searched in Github, in Twitter we searched also for
+\textit{hashtags} such as \textbf{\#GiveAway} and
+hashtags correlated to specific cryptocurrency (e.g. \#BTCGiveAway). This has
+been done using Twitter
+API\footnote{\url{https://developer.twitter.com/en/docs/api-reference-index}}.
+However, it has a strong limitation: we are only able to retrieve tweets that
+were published at most a week before the search. This limitation is imposed
+because we have not paid for a premium account. In fact our research must be
+thought as a proof of concept.
+Although this limitation even with a free account one can collect a huge amount
+of data by performing those queries weekly:
+the information before the first search is lost without a premium account, but,
+following this idea it is possible to collect incrementally all the future
+addresses.
 
 \subsection{Database}
 All data retrieved is stored into a
